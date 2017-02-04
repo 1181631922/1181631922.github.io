@@ -161,13 +161,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/04/hexo_01/">使用hexo搭建自己的博客</a>
+      <a class="article-title" href="/2017/02/04/hexo_01/">使用hexo搭建自己的博客（一）</a>
     </h1>
   
 
         
         <a href="/2017/02/04/hexo_01/" class="archive-article-date">
-  	<time datetime="2017-02-04T02:20:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-04</time>
+  	<time datetime="2017-02-04T04:28:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-04</time>
 </a>
         
       </header>
@@ -175,17 +175,59 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2></h2>
-<p>使用hexo搭建自己的博客</p>
-<ul>
-    　　　　
-</ul>
+
+
 <html>
 <body>
-    <video width="1207" height="257" controls="controls">
-        <source src="http://220.194.199.183/16/t/e/d/v/tedvmiwiohknqibyvmbwljvbvstfki/hc.yinyuetai.com/02AD01590020D7DB1D4D23856931882A.mp4?sc=ca8323d5262b43bb&br=781&rd=Android&crazycache=1">
-    </video>
-</body>
-</html>
+
+<!--<video width=100% height=auto controls="controls">-->
+<!--<source src="http://220.194.199.183/16/t/e/d/v/tedvmiwiohknqibyvmbwljvbvstfki/hc.yinyuetai.com/02AD01590020D7DB1D4D23856931882A.mp4?sc=ca8323d5262b43bb&br=781&rd=Android&crazycache=1">-->
+<!--</video>-->
+<!--2.<img src="/images/2017-02-04-ais.jpg" width=100% height=auto>-->
+<div>
+    <h4>1.先了解一下hexo的特性，以及做一些准备工作</h4>
+    <ul style="padding-left:20px;">
+        <li><a href="https://hexo.io/zh-cn/" target="_blank" rel="external">hexo</a></li>
+    </ul>
+    <h4>2.我用的是mac，这里就以mac举例子，其实大同小异。</h4>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;<font size="3"> 2.1 首先需要检测以下的环境，Git大家基本上都有，剩下的就是node了</font>
+    <ul style="padding-left:20px;">
+        <li><a href="http://nodejs.org/" target="_blank" rel="external">Node.js</a></li>
+        <li><a href="http://git-scm.com/" target="_blank" rel="external">Git</a></li>
+    </ul>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;<font size="3"> 2.2 node安装，有的话请略过</font><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="2"> 2.2.1首先更新一下安装源</font>
+    <ul style="padding-left:40px;">
+        <figure class="highlight bash">
+            <table>
+                <tr>
+                    <td class="code">
+                        <pre><div class="line">$ brew update</div></pre>
+                    </td>
+                </tr>
+            </table>
+        </figure>
+    </ul>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="2"> 2.2.2安装node（翻墙的话可以直接执行第一行就可以）</font>
+    <ul style="padding-left:40px;">
+        <figure class="highlight bash">
+            <table>
+                <tr>
+                    <td class="code">
+                        <pre><div class="line">$ brew install node
+$ npm config set registry https://registry.npm.taobao.org --global
+$ npm config set disturl https://npm.taobao.org/dist --global</div></pre>
+                    </td>
+                </tr>
+            </table>
+        </figure>
+    </ul>
+        
+          <a class="article-more-a" href="/2017/02/04/hexo_01/#more">more >></a>
+        
       
 
       
@@ -198,6 +240,61 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/02/04/hexo_01/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/04/hello-world/">Hello World</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/04/hello-world/" class="archive-article-date">
+  	<time datetime="2017-02-04T04:22:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+        
+          <a class="article-more-a" href="/2017/02/04/hello-world/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/04/hello-world/">展开全文 >></a>
         </p>
       
 
@@ -253,65 +350,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/01/22/HappyNewYear/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/19/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/19/hello-world/" class="archive-article-date">
-  	<time datetime="2017-01-19T10:16:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/19/hello-world/">展开全文 >></a>
         </p>
       
 
