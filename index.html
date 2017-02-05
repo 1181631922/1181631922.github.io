@@ -167,7 +167,7 @@
 
         
         <a href="/2017/02/05/BrokenLineView_01/" class="archive-article-date">
-  	<time datetime="2017-02-05T03:07:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-05</time>
+  	<time datetime="2017-02-05T03:47:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-05</time>
 </a>
         
       </header>
@@ -180,10 +180,11 @@
 <div>
     <h4>1.先看一下要实现的大致效果图</h4>
     <script type="text/javascript">
-            document.write("<font size=\"2\">下图为要实现的设计图，点击后为初步实现的效果图。</font>");
+            document.write("<font size=\"3\">下图为要实现的设计图，点击后为初步实现的效果图。</font>");
+
     </script>
     <button type="button" onclick="changeImage()">点击这里</button>
-    <br>
+    <br><br>
     <script>
         function changeImage(){
             element=document.getElementById('brokenLine');
@@ -193,17 +194,13 @@
                 element.src="/images/2017-02-05-brokenlineview1.jpg";
             }
         }
+
     </script>
-    <img id="brokenLine" onclick="changeImage()" src="/images/2017-02-05-brokenlineview1.jpg" width="30%" height="auto">
-    <h4>2.说一下实现思路</h4>
-    <div style="padding-left:20px;">
-        <li>2.1 首先是先画一个坐标系，但是需要给标尺留出距离，我刚开始的时候就忘了留距离，后来又改的</li>
-        <li>2.2 再有就是画一个折线图，折线图需要描点和标值</li>
-        <li>2.3 需要画一个矩形范围</li>
-    </div>
-</div>
-</body>
-</html>
+    <img id="brokenLine" onclick="changeImage()" src="/images/2017-02-05-brokenlineview1.jpg"
+         width=50% height=auto><br>
+        
+          <a class="article-more-a" href="/2017/02/05/BrokenLineView_01/#more">more >></a>
+        
       
 
       

@@ -11,6 +11,7 @@
   <meta name="description" content="1.先看一下要实现的大致效果图
     
             document.write(&quot;下图为要实现的设计图，点击后为初步实现的效果图。&quot;);
+
     
     点击这里
     
@@ -24,6 +25,7 @@
 <meta property="og:description" content="1.先看一下要实现的大致效果图
     
             document.write(&quot;下图为要实现的设计图，点击后为初步实现的效果图。&quot;);
+
     
     点击这里
     
@@ -31,12 +33,13 @@
         function changeImage(){
             element=document.getElementById(&apos;brokenLine&apos;);">
 <meta property="og:image" content="http://yoursite.com/images/2017-02-05-brokenlineview1.jpg">
-<meta property="og:updated_time" content="2017-02-05T03:07:47.000Z">
+<meta property="og:updated_time" content="2017-02-05T03:47:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义折线图（一）">
 <meta name="twitter:description" content="1.先看一下要实现的大致效果图
     
             document.write(&quot;下图为要实现的设计图，点击后为初步实现的效果图。&quot;);
+
     
     点击这里
     
@@ -192,7 +195,7 @@
 
         
         <a href="/2017/02/05/BrokenLineView_01/" class="archive-article-date">
-  	<time datetime="2017-02-05T03:07:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-05</time>
+  	<time datetime="2017-02-05T03:47:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-05</time>
 </a>
         
       </header>
@@ -205,10 +208,11 @@
 <div>
     <h4>1.先看一下要实现的大致效果图</h4>
     <script type="text/javascript">
-            document.write("<font size=\"2\">下图为要实现的设计图，点击后为初步实现的效果图。</font>");
+            document.write("<font size=\"3\">下图为要实现的设计图，点击后为初步实现的效果图。</font>");
+
     </script>
     <button type="button" onclick="changeImage()">点击这里</button>
-    <br>
+    <br><br>
     <script>
         function changeImage(){
             element=document.getElementById('brokenLine');
@@ -218,14 +222,168 @@
                 element.src="/images/2017-02-05-brokenlineview1.jpg";
             }
         }
+
     </script>
-    <img id="brokenLine" onclick="changeImage()" src="/images/2017-02-05-brokenlineview1.jpg" width="30%" height="auto">
+    <img id="brokenLine" onclick="changeImage()" src="/images/2017-02-05-brokenlineview1.jpg" width="50%" height="auto"><br>
+    <a id="more"></a>
     <h4>2.说一下实现思路</h4>
     <div style="padding-left:20px;">
         <li>2.1 首先是先画一个坐标系，但是需要给标尺留出距离，我刚开始的时候就忘了留距离，后来又改的</li>
         <li>2.2 再有就是画一个折线图，折线图需要描点和标值</li>
         <li>2.3 需要画一个矩形范围</li>
     </div>
+
+    <h4>3.在写代码之前先来考虑一下需要什么变量</h4>
+    <div style="padding-left:20px;">
+        <li>3.1 自定义view的话首先需要确定view的宽高，还有就是他的原点是相对于自己的</li>
+        <li>3.2 定义画笔，我刚开始的时候没有确定需要定义几个，需要的话我就去定义</li>
+        <li>3.3 标尺，以及折线上字的位置</li>
+        注：注意一些变量是可以定义成静态的，为了效率
+    </div>
+
+    <h4>4.现在开始着手写代码</h4>
+    &nbsp;&nbsp;&nbsp;&nbsp;<font size="3">4.1 先来确定view的宽高位置</font><br>
+    <ul style="padding-left:20px;">
+        <figure class="highlight bash">
+            <table>
+                <tr>
+                    <td class="code">
+                        <pre><div class="line">        if (width == 0) {//宽
+            width = getWidth();
+            pWidth = width - indexWidth;
+        }
+        if (height == 0) {//高
+            height = getHeight() - indexWidth;
+        }</div></pre>
+                    </td>
+                </tr>
+            </table>
+        </figure>
+    </ul>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;<font size="3">4.2 标字，这里就举一个例子</font><br>
+    <ul style="padding-left:20px;">
+        <figure class="highlight bash">
+            <table>
+                <tr>
+                    <td class="code">
+                        <pre><div class="line">        //折点标字
+        Paint paintX1 = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paintX1.setAntiAlias(true);
+        paintX1.setTextSize(30);
+        Rect rect = new Rect((int) x1 - 50, (int) y1 - 70, (int) x1 + 50, (int) y1 - 20);//折线为圈，需要减去半径
+        paintX1.setColor(Color.WHITE);
+        canvas.drawRect(rect, paintX1);
+        Paint.FontMetricsInt fontMetricsIntX1 = paintX1.getFontMetricsInt();
+        int baseLineX1 = (rect.bottom + rect.top - fontMetricsIntX1.bottom - fontMetricsIntX1.top) / 2;
+        paintX1.setTextAlign(Paint.Align.CENTER);
+        paintX1.setColor(Color.BLACK);
+        canvas.drawText("26.9", rect.centerX(), baseLineX1, paintX1);</div></pre>
+                    </td>
+                </tr>
+            </table>
+        </figure>
+    </ul>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;<font size="3">4.3 再来就是画折线，折线的话先确定折点，然后连线就可以了，我这里是暂时定死的五等分</font><br>
+    <ul style="padding-left:20px;">
+        <figure class="highlight bash">
+            <table>
+                <tr>
+                    <td class="code">
+                        <pre><div class="line">        //y轴第一个点
+        float pointY1y = height / 3;
+        float pointY1x = indexWidth;
+        //y轴第二个点
+        float pointY2y = height * 2 / 3;
+        float pointY2x = indexWidth;
+        canvas.drawRect(indexWidth, pointY1y, width, pointY2y, shapePaint);
+
+        //x轴第一个点,y轴第一个
+        float x1 = pWidth / 6;
+        float y1 = height / 6;
+
+        //x轴第二个点
+        float x2 = pWidth / 3;
+        float y2 = height / 3;
+
+        //x轴第三个点
+        float x3 = pWidth / 2;
+        float y3 = height / 2;
+
+        //x轴第四个点
+        float x4 = 2 * pWidth / 3;
+        float y4 = height / 3;
+
+        //x轴第五个点
+        float x5 = 5 * pWidth / 6;
+        float y5 = 5 * height / 6;
+
+        //以下是折线图
+        canvas.drawLine(x1, y1, x2, y2, pointPaint);
+        canvas.drawLine(x2, y2, x3, y3, pointPaint);
+        canvas.drawLine(x3, y3, x4, y4, pointPaint);
+        canvas.drawLine(x4, y4, x5, y5, pointPaint);
+
+        canvas.drawCircle(x1, y1, 12, bigCirclePaint);
+        canvas.drawCircle(x1, y1, 10, circlePaint);
+        canvas.drawCircle(x2, y2, 12, bigCirclePaint);
+        canvas.drawCircle(x2, y2, 10, circlePaint);
+
+        canvas.drawCircle(x3, y3, 12, bigCirclePaint);
+        canvas.drawCircle(x3, y3, 10, circlePaint);
+
+        canvas.drawCircle(x4, y4, 12, bigCirclePaint);
+        canvas.drawCircle(x4, y4, 10, circlePaint);
+
+        canvas.drawCircle(x5, y5, 12, bigCirclePaint);
+        canvas.drawCircle(x5, y5, 10, circlePaint);</div></pre>
+                    </td>
+                </tr>
+            </table>
+        </figure>
+    </ul>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;<font size="3">4.4 给x和y轴标刻度</font><br>
+    <ul style="padding-left:20px;">
+        <figure class="highlight bash">
+            <table>
+                <tr>
+                    <td class="code">
+                        <pre><div class="line">//        y轴坐标
+        Paint paintY1 = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paintY1.setTextSize(30);
+        paintY1.setAntiAlias(true);
+        Rect rectY1 = new Rect(0, (int) pointY1y - 30, (int) indexWidth, (int) pointY1y + 30);//折线为圈，需要减去半径
+        paintY1.setColor(Color.WHITE);
+        canvas.drawRect(rectY1, paintY1);
+        Paint.FontMetricsInt fontMetricsIntY1 = paintY1.getFontMetricsInt();
+        int baseLineY1 = (rectY1.bottom + rectY1.top - fontMetricsIntY1.bottom - fontMetricsIntY1.top) / 2;
+        paintY1.setTextAlign(Paint.Align.CENTER);
+        paintY1.setColor(Color.BLACK);
+        canvas.drawText("26.9", rectY1.centerX(), baseLineY1, paintY1);
+
+        //x轴坐标
+        Paint paintY2 = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paintY2.setTextSize(30);
+        paintY2.setAntiAlias(true);
+        Rect rectY2 = new Rect(0, (int) pointY2y - 30, (int) indexWidth, (int) pointY2y + 30);//折线为圈，需要减去半径
+        paintY2.setColor(Color.WHITE);
+        canvas.drawRect(rectY2, paintY2);
+        Paint.FontMetricsInt fontMetricsIntY2 = paintY2.getFontMetricsInt();
+        int baseLineY2 = (rectY2.bottom + rectY2.top - fontMetricsIntY2.bottom - fontMetricsIntY2.top) / 2;
+        paintY2.setTextAlign(Paint.Align.CENTER);
+        paintY2.setColor(Color.BLACK);
+        canvas.drawText("26.9", rectY2.centerX(), baseLineY2, paintY2);</div></pre>
+                    </td>
+                </tr>
+            </table>
+        </figure>
+    </ul>
+
+    <h4>5.我把代码托管到github上了，以下是github地址</h4>
+    <a href="https://github.com/1181631922/BrokenLineView" target="_blank" rel="external">折线图：https://github.com/1181631922/BrokenLineView</a>
+
 </div>
 </body>
 </html>
