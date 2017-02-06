@@ -167,7 +167,7 @@
 
         
         <a href="/2017/02/06/BrokenLineView_02/" class="archive-article-date">
-  	<time datetime="2017-02-06T02:28:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-06</time>
+  	<time datetime="2017-02-06T02:33:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-06</time>
 </a>
         
       </header>
@@ -185,7 +185,8 @@
     &nbsp;&nbsp;&nbsp;&nbsp;<font
         size="3">这次需要动态画曲线，阴影，标刻度，所以这些都是不确定的，我一般都是定义相应的set方法。我这里定义了四个set方法</font><br>
     <div style="padding-left:20px;">
-        <li>2.1 首先是需要定义一个bean，自定义的点：BrokenLinePointBean</li>
+        <li>2.1 首先是需要定义一个bean，自定义的点：BrokenLinePointBean<font color="red">
+            （这里需要留意的是y是百分比，x基本没有用到）</font></li>
         <li>2.2 画曲线所需要的折点：setPointList(List points)</li>
         <li>2.3 画阴影所需要的两个点，主要是要确定y轴范围：setShapePaints(BrokenLinePointBean pointY1,
             BrokenLinePointBean pointY2)
