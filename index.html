@@ -45,7 +45,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="http://a3.qpic.cn/psb?/V12cYG6y1Idi7M/yzran5rc95ZrvYfrc9ewm7bB6vqdfzJf.TJRUnhQayo!/b/dB8BAAAAAAAA&amp;bo=gAJVAwAAAAAFB*A!&amp;rf=viewer_4" class="js-avatar">
+			<img src="/images/fanyafeng_avatar.jpeg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">樊亚风</a></h1>
@@ -103,7 +103,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="http://a3.qpic.cn/psb?/V12cYG6y1Idi7M/yzran5rc95ZrvYfrc9ewm7bB6vqdfzJf.TJRUnhQayo!/b/dB8BAAAAAAAA&amp;bo=gAJVAwAAAAAFB*A!&amp;rf=viewer_4" class="js-avatar">
+				<img src="/images/fanyafeng_avatar.jpeg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">樊亚风</h1>
@@ -153,6 +153,442 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="default-BrokenLineView_02" class="article article-type-default  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/06/BrokenLineView_02/">自定义折线图（二）</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/06/BrokenLineView_02/" class="archive-article-date">
+  	<time datetime="2017-02-06T02:24:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2></h2>
+<html>
+<body>
+<div>
+    <h4>1.上文自定义折线图有bug，当时没细看，写自定义的时候突然惊醒了</h4>
+    &nbsp;&nbsp;&nbsp;&nbsp;<font size="3">因为x和y轴需要标刻度，然后把坐标轴的原点没有定在左下角，而是向左上进行了平移，所以同时还需要把折线的x点同时加上坐标轴向左移动的距离。</font><br>
+
+    <h4>2.上文中思路也说了，下面来定义一下需要的东西。</h4>
+    &nbsp;&nbsp;&nbsp;&nbsp;<font size="3">这次需要动态画曲线，阴影，标刻度，所以这些都是不确定的，我一般都是定义相应的set方法。我这里定义了四个set方法</font><br>
+    <div style="padding-left:20px;">
+        <li>2.1 首先是需要定义一个bean，自定义的点：BrokenLinePointBean</li>
+        <li>2.2 画曲线所需要的折点：setPointList(List points)</li>
+        <li>2.3 画阴影所需要的两个点，主要是要确定y轴范围：setShapePaints(BrokenLinePointBean pointY1,
+            BrokenLinePointBean pointY2)
+        </li>
+        <li>2.4 x轴坐标标刻度：setXIndex(List XindexString)</li>
+        <li>2.5 y轴坐标标刻度：setYIndex(List YindexString)</li>
+    </div>
+
+    <h4>3.先来看一下运行效果</h4>
+    <img src="/images/2017-02-06-brokenlineview.gif" width="50%" height="auto">
+
+    <h4>4.看一下核心代码，主要是两块吧</h4>
+    &nbsp;&nbsp;&nbsp;&nbsp;<font size="3">4.1阴影绘制</font><br>
+    <ul style="padding-left:20px;">
+        <figure class="highlight bash">
+            <table>
+                <tr>
+                    <td class="code">
+                        <pre><div class="line">            if (PointY1.y > -1 && PointY2.y > -1) {
+            canvas.drawRect(indexWidth, PointY1.y * height, width, PointY2.y * height, shapePaint);
+
+            //y轴坐标1
+            Paint paintY1 = new Paint(Paint.ANTI_ALIAS_FLAG);
+            paintY1.setTextSize(30);
+            paintY1.setAntiAlias(true);
+            Rect rectY1 = new Rect(0, (int) (PointY1.y * height - 10), (int) indexWidth, (int) (PointY1.y * height + 10));//折线为圈，需要减去半径
+            paintY1.setColor(Color.WHITE);
+            canvas.drawRect(rectY1, paintY1);
+            Paint.FontMetricsInt fontMetricsIntY1 = paintY1.getFontMetricsInt();
+            int baseLineY1 = (rectY1.bottom + rectY1.top - fontMetricsIntY1.bottom - fontMetricsIntY1.top) / 2;
+            paintY1.setTextAlign(Paint.Align.CENTER);
+            paintY1.setColor(Color.BLACK);
+            canvas.drawText("y1点", rectY1.centerX(), baseLineY1, paintY1);
+
+            //y轴坐标2
+            Paint paintY2 = new Paint(Paint.ANTI_ALIAS_FLAG);
+            paintY2.setTextSize(30);
+            paintY2.setAntiAlias(true);
+            Rect rectY2 = new Rect(0, (int) (PointY2.y * height - 10), (int) indexWidth, (int) (PointY2.y * height + 10));//折线为圈，需要减去半径
+            paintY2.setColor(Color.WHITE);
+            canvas.drawRect(rectY2, paintY2);
+            Paint.FontMetricsInt fontMetricsIntY2 = paintY2.getFontMetricsInt();
+            int baseLineY2 = (rectY2.bottom + rectY2.top - fontMetricsIntY2.bottom - fontMetricsIntY2.top) / 2;
+            paintY2.setTextAlign(Paint.Align.CENTER);
+            paintY2.setColor(Color.BLACK);
+            canvas.drawText("y2点", rectY2.centerX(), baseLineY2, paintY2);
+            }</div></pre>
+                    </td>
+                </tr>
+            </table>
+        </figure>
+    </ul>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;<font size="3">4.1折线以及x，y轴绘制</font><br>
+    <ul style="padding-left:20px;">
+        <figure class="highlight bash">
+            <table>
+                <tr>
+                    <td class="code">
+                        <pre><div class="line">        int size = points.size();
+        if (size != 0) {
+            //size+1份，每份长度
+            float eachLength = pWidth / (size + 1);
+
+            for (int i = 0; i < size; i++) {
+                float pointX1 = indexWidth + eachLength * (i + 1);
+                float pointY1 = points.get(i).y * height;
+
+                if (i != size - 1) {
+                    float pointX2 = indexWidth + eachLength * (i + 2);
+                    float pointY2 = points.get(i + 1).y * height;
+                    canvas.drawLine(pointX1, pointY1, pointX2, pointY2, pointPaint);
+
+                    canvas.drawCircle(pointX2, pointY2, 12, bigCirclePaint);
+                    canvas.drawCircle(pointX2, pointY2, 10, circlePaint);
+                }
+                canvas.drawCircle(pointX1, pointY1, 12, bigCirclePaint);
+                canvas.drawCircle(pointX1, pointY1, 10, circlePaint);
+
+                //折点标字
+                Paint paintBroken = new Paint(Paint.ANTI_ALIAS_FLAG);
+                paintBroken.setAntiAlias(true);
+                paintBroken.setTextSize(30);
+                Rect rectBroken = new Rect((int) pointX1 - 50, (int) pointY1 - 70, (int) pointX1 + 50, (int) pointY1 - 20);//折线为圈，需要减去半径
+                paintBroken.setColor(Color.TRANSPARENT);
+                canvas.drawRect(rectBroken, paintBroken);
+                Paint.FontMetricsInt fontMetricsIntBroken = paintBroken.getFontMetricsInt();
+                int baseLineBroken = (rectBroken.bottom + rectBroken.top - fontMetricsIntBroken.bottom - fontMetricsIntBroken.top) / 2;
+                paintBroken.setTextAlign(Paint.Align.CENTER);
+                paintBroken.setColor(Color.BLACK);
+                canvas.drawText(String.valueOf(points.get(i).y), rectBroken.centerX(), baseLineBroken, paintBroken);
+
+                //x刻度
+                Paint paintBrokenX = new Paint(Paint.ANTI_ALIAS_FLAG);
+                paintBrokenX.setAntiAlias(true);
+                paintBrokenX.setTextSize(30);
+                Rect rectBrokenX = new Rect((int) pointX1 - 50, (int) height, (int) pointX1 + 50, (int) (height + indexWidth));//折线为圈，需要减去半径
+                paintBrokenX.setColor(Color.TRANSPARENT);
+                canvas.drawRect(rectBrokenX, paintBrokenX);
+                Paint.FontMetricsInt fontMetricsIntBrokenX = paintBrokenX.getFontMetricsInt();
+                int baseLineBrokenX = (rectBrokenX.bottom + rectBrokenX.top - fontMetricsIntBrokenX.bottom - fontMetricsIntBrokenX.top) / 2;
+                paintBrokenX.setTextAlign(Paint.Align.CENTER);
+                paintBrokenX.setColor(Color.BLACK);
+                canvas.drawText(XindexString.size() > 0 ? XindexString.get(i) : String.valueOf(i + 1), rectBrokenX.centerX(), baseLineBrokenX, paintBrokenX);
+
+                //y刻度
+                Paint paintBrokenY = new Paint(Paint.ANTI_ALIAS_FLAG);
+                paintBrokenY.setTextSize(30);
+                paintBrokenY.setAntiAlias(true);
+                Rect rectBrokenY = new Rect(0, (int) pointY1 - 10, (int) indexWidth, (int) pointY1 + 10);//折线为圈，需要减去半径
+                paintBrokenY.setColor(Color.WHITE);
+                canvas.drawRect(rectBrokenY, paintBrokenY);
+                Paint.FontMetricsInt fontMetricsIntBrokenY = paintBrokenY.getFontMetricsInt();
+                int baseLineBrokenY = (rectBrokenY.bottom + rectBrokenY.top - fontMetricsIntBrokenY.bottom - fontMetricsIntBrokenY.top) / 2;
+                paintBrokenY.setTextAlign(Paint.Align.CENTER);
+                paintBrokenY.setColor(Color.BLACK);
+                canvas.drawText(YindexString.size() > 0 ? YindexString.get(i) : String.valueOf(i + 1), rectBrokenY.centerX(), baseLineBrokenY, paintBrokenY);
+            }
+        }
+        //x轴 轴应该最后画
+        canvas.drawLine(indexWidth, height, width, height, XPaint);
+        //y轴
+        canvas.drawLine(indexWidth, 0, indexWidth, height, YPaint);</div></pre>
+                    </td>
+                </tr>
+            </table>
+        </figure>
+    </ul>
+
+    <h4>5.项目源码（github）</h4>
+    <a href="https://github.com/1181631922/BrokenLineView" target="_blank" rel="external">折线图：https://github.com/1181631922/BrokenLineView</a>
+
+</div>
+</body>
+</html>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/06/BrokenLineView_02/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="default-SlideShow_01" class="article article-type-default  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/05/SlideShow_01/">Js轮播图（一）</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/05/SlideShow_01/" class="archive-article-date">
+  	<time datetime="2017-02-05T07:36:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2></h2>
+<html>
+<head>
+    <style type="text/css">
+        body{background: #f4f4f4;}
+		#container{width: 100%;height: 553px;position:relative;margin-right: auto;margin-left: auto;vertical-align:middle;}
+		#imglist{margin: auto;position: absolute;top: 0; left: 0; bottom: 0; right: 0;}
+		#buttons,.slidpic{display: none;}
+		.slidpic{position: absolute;opacity:0}
+		.slidpic:first-child{display: block;opacity: 1;}
+		#buttons{display: block;}
+		#buttons i{width:30px; color:white;height:60px;line-height:60px; background: #333;cursor: pointer;opacity: 0.2;filter:alpha(opacity:20);font-family: simsun;display: block;text-align: center;font-size: 22px;font-weight: normal;font-style: normal;-moz-user-select: none;-webkit-user-select: none;
+		-ms-user-select: none;}
+
+		#buttons i:hover{opacity: 0.4;filter:alpha(opacity:40);}
+		#prev{position: absolute;z-index: 3;top: 230px;left: 30px;color: #fff;}
+		#next{position: absolute;z-index: 3;top: 230px;right: 30px;color: #fff;}
+		#slidot{position: absolute;bottom: 40px;left:340px;z-index: 3;margin: 0;padding: 0;}
+		#slidot li{list-style: none;display: inline-block;width: 14px;height: 14px;background:gray ;border-radius:100% ;margin: 0 4px;*display:inline;*zoom:1;}
+		#slidot li:hover{background: #3b0;cursor: pointer;}
+		#slidot li.on{background: blue;}
+
+
+    </style>
+
+    <script type="text/javascript">
+        window.onload=function(){
+        //定义判断添加删除元素class方法
+        var hasClass=function(obj,cls){
+            return obj.className.match(new RegExp('(^|\\s)' + cls + '(\\s|$)'))
+        }
+        var addClass=function(obj,cls){
+          if(!hasClass(obj,cls)){
+            if(obj.className.length==0){obj.className=cls;}
+            else{obj.className+=" "+cls;}
+          }
+        }
+        var rvClass=function(obj,cls){
+          if(hasClass(obj,cls)){
+            var argu=new RegExp('(^|\\s)' + cls + '(\\s|$)');
+            obj.className=obj.className.replace(argu,"");
+          }
+        }
+
+        //开始
+        var prev=document.getElementById("prev"),
+          next=document.getElementById("next"),
+          imglist=document.getElementById("imglist").getElementsByTagName("div"),
+          dot=document.getElementById("slidot").getElementsByTagName("li"),
+          n=imglist.length,
+          index=0,
+          fade=false;
+        // 设置透明度  渐变
+        var setOpacity=function(obj,opa){
+          if(obj.filters){obj.style.filter="alpha(opacity:"+opa+")";}
+          else{obj.style.opacity=opa/100;}
+        }
+        var fadeIn=function(obj){
+          fade=true;
+          obj.style.display="block";
+          var opa=0;
+          (function func(){
+            if(opa<100){opa+=10;setOpacity(obj,opa);setTimeout(func,20)}
+            else{fade=false;}
+          })();
+        }
+        var fadeOut=function(obj){
+          fade=true;
+          var opa=100;
+          (function func(){
+            if(opa>0){opa-=10;setOpacity(obj,opa);setTimeout(func,30)}
+            else{obj.style.display="none";}
+          })();
+        }
+        //  同步点亮小圆点
+        function lightdot(){
+          for (var i=0;i<n;i++){
+            if(hasClass(dot[i],"on")){rvClass(dot[i],"on");break;}
+          }
+          addClass(dot[index],"on");
+        }
+        //  点击切换下一张
+        next.onclick=function(){
+          if(fade){return;}
+          else{
+          fadeOut(imglist[index]);
+          index++;
+          if(index==n)index=0;
+          fadeIn(imglist[index])
+          lightdot();
+          };
+        }
+        //   点击切换上一张
+        prev.onclick=function(){
+          if(fade){return;}
+          else{
+          fadeOut(imglist[index]);
+          if(index==0){index=n;}
+          index--;
+          fadeIn(imglist[index]);
+          lightdot();
+          }
+        }
+        //   圆点控制切换
+        for(var i=0;i<n;i++){
+          dot[i].order=i;
+          dot[i].onclick=function(){
+          if(this.order==index){return}
+          else{
+            fadeOut(imglist[index]);
+            index=this.order;
+            fadeIn(imglist[index]);
+            lightdot();}
+          }
+        }
+        // 自动播放启停
+        function play(){auto=setTimeout(function(){next.onclick();play();},3000)};
+        function stop(){clearTimeout(auto)};
+        play();
+        container.onmouseover=stop;
+        container.onmouseout=play;
+        }
+
+
+    </script>
+</head>
+<body>
+<div id="container">
+    <div id="imglist">
+        <div class="slidpic">
+            <img src="http://www.denpe.com/example/1.jpg" width="100%" height="auto">
+        </div>
+        <div class="slidpic">
+            <img src="http://www.denpe.com/example/2.jpg" width="100%" height="auto">
+        </div>
+        <div class="slidpic">
+            <img src="http://www.denpe.com/example/3.jpg" width="100%" height="auto">
+        </div>
+        <div class="slidpic">
+            <img src="http://www.denpe.com/example/4.jpg" width="100%" height="auto">
+        </div>
+        <div class="slidpic">
+            <img src="http://www.denpe.com/example/5.jpg" width="100%" height="auto">
+        </div>
+    </div>
+
+    <div id="buttons">
+        <i id="prev"><</i>
+        <i id="next">></i>
+    </div>
+
+    <ul id="slidot">
+        <li class="on"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script>
+    (function(i,s,o,g,r,a,m){
+        i['GoogleAnalyticsObject']=r;
+        i[r]=i[r] ||
+        function(){(i[r].q=i[r].q || ).push(arguments)},
+        i[r].l=1*new Date();
+        a=s.createElement(o);
+        m=s.getElementsByTagName(o)[0];
+        a.async=1;
+        a.src=g;
+        m.parentNode.insertBefore(a,m);
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-60786254-1', 'auto');
+	ga('send', 'pageview');
+
+</script>
+
+<!--<h4>2.说一下实现思路</h4>-->
+<!--<div style="padding-left:20px;">-->
+    <!--<li>2.1 首先是先画一个坐标系，但是需要给标尺留出距离，我刚开始的时候就忘了留距离，后来又改的</li>-->
+    <!--<li>2.2 再有就是画一个折线图，折线图需要描点和标值</li>-->
+    <!--<li>2.3 需要画一个矩形范围</li>-->
+<!--</div>-->
+
+<!--<h4>3.在写代码之前先来考虑一下需要什么变量</h4>-->
+<!--<div style="padding-left:20px;">-->
+    <!--<li>3.1 自定义view的话首先需要确定view的宽高，还有就是他的原点是相对于自己的</li>-->
+    <!--<li>3.2 定义画笔，我刚开始的时候没有确定需要定义几个，需要的话我就去定义</li>-->
+    <!--<li>3.3 标尺，以及折线上字的位置</li>-->
+    <!--注：注意一些变量是可以定义成静态的，为了效率-->
+<!--</div>-->
+</body>
+</html>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/05/SlideShow_01/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
   
     <article id="default-BrokenLineView_01" class="article article-type-default  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">

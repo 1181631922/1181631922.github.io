@@ -6,48 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>使用hexo搭建自己的博客（一） | 樊亚风的博客</title>
+  <title>Js轮播图（一） | 樊亚风的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.先了解一下hexo的特性，以及做一些准备工作
-    
-        hexo
-    
-    2.我用的是mac，这里就以mac举例子，其实大同小异。
-
-    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 2.1 首先需要检测以下的环境，Git大家基本上都有，剩下的就是node了
-    
-        Node.js
-        Git">
+  <meta name="description" content="body{background: #f4f4f4;}
+		#container{width: 100%;height: 553px;position:relative;margin-right: auto;margin-left: auto;vertical-align:middle;}
+		#imglist{margin: auto;position: absol">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用hexo搭建自己的博客（一）">
-<meta property="og:url" content="http://yoursite.com/2017/02/04/hexo_01/index.html">
+<meta property="og:title" content="Js轮播图（一）">
+<meta property="og:url" content="http://yoursite.com/2017/02/05/SlideShow_01/index.html">
 <meta property="og:site_name" content="樊亚风的博客">
-<meta property="og:description" content="1.先了解一下hexo的特性，以及做一些准备工作
-    
-        hexo
-    
-    2.我用的是mac，这里就以mac举例子，其实大同小异。
-
-    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 2.1 首先需要检测以下的环境，Git大家基本上都有，剩下的就是node了
-    
-        Node.js
-        Git">
-<meta property="og:image" content="http://yoursite.com/images/2017-02-04-hexo2.png">
-<meta property="og:image" content="http://yoursite.com/images/2017-02-04-hexo1.png">
-<meta property="og:updated_time" content="2017-02-04T06:44:58.000Z">
+<meta property="og:description" content="body{background: #f4f4f4;}
+		#container{width: 100%;height: 553px;position:relative;margin-right: auto;margin-left: auto;vertical-align:middle;}
+		#imglist{margin: auto;position: absol">
+<meta property="og:image" content="http://www.denpe.com/example/1.jpg">
+<meta property="og:image" content="http://www.denpe.com/example/2.jpg">
+<meta property="og:image" content="http://www.denpe.com/example/3.jpg">
+<meta property="og:image" content="http://www.denpe.com/example/4.jpg">
+<meta property="og:image" content="http://www.denpe.com/example/5.jpg">
+<meta property="og:updated_time" content="2017-02-05T07:36:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用hexo搭建自己的博客（一）">
-<meta name="twitter:description" content="1.先了解一下hexo的特性，以及做一些准备工作
-    
-        hexo
-    
-    2.我用的是mac，这里就以mac举例子，其实大同小异。
-
-    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 2.1 首先需要检测以下的环境，Git大家基本上都有，剩下的就是node了
-    
-        Node.js
-        Git">
-<meta name="twitter:image" content="http://yoursite.com/images/2017-02-04-hexo2.png">
+<meta name="twitter:title" content="Js轮播图（一）">
+<meta name="twitter:description" content="body{background: #f4f4f4;}
+		#container{width: 100%;height: 553px;position:relative;margin-right: auto;margin-left: auto;vertical-align:middle;}
+		#imglist{margin: auto;position: absol">
+<meta name="twitter:image" content="http://www.denpe.com/example/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="樊亚风的博客" type="application/atom+xml">
   
@@ -183,20 +165,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="default-hexo_01" class="article article-type-default " itemscope itemprop="blogPost">
+            <article id="default-SlideShow_01" class="article article-type-default " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      使用hexo搭建自己的博客（一）
+      Js轮播图（一）
     </h1>
   
 
         
-        <a href="/2017/02/04/hexo_01/" class="archive-article-date">
-  	<time datetime="2017-02-04T06:44:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-04</time>
+        <a href="/2017/02/05/SlideShow_01/" class="archive-article-date">
+  	<time datetime="2017-02-05T07:36:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-05</time>
 </a>
         
       </header>
@@ -204,82 +186,195 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2></h2>
-
-
 <html>
+<head>
+    <style type="text/css">
+        body{background: #f4f4f4;}
+		#container{width: 100%;height: 553px;position:relative;margin-right: auto;margin-left: auto;vertical-align:middle;}
+		#imglist{margin: auto;position: absolute;top: 0; left: 0; bottom: 0; right: 0;}
+		#buttons,.slidpic{display: none;}
+		.slidpic{position: absolute;opacity:0}
+		.slidpic:first-child{display: block;opacity: 1;}
+		#buttons{display: block;}
+		#buttons i{width:30px; color:white;height:60px;line-height:60px; background: #333;cursor: pointer;opacity: 0.2;filter:alpha(opacity:20);font-family: simsun;display: block;text-align: center;font-size: 22px;font-weight: normal;font-style: normal;-moz-user-select: none;-webkit-user-select: none;
+		-ms-user-select: none;}
+
+		#buttons i:hover{opacity: 0.4;filter:alpha(opacity:40);}
+		#prev{position: absolute;z-index: 3;top: 230px;left: 30px;color: #fff;}
+		#next{position: absolute;z-index: 3;top: 230px;right: 30px;color: #fff;}
+		#slidot{position: absolute;bottom: 40px;left:340px;z-index: 3;margin: 0;padding: 0;}
+		#slidot li{list-style: none;display: inline-block;width: 14px;height: 14px;background:gray ;border-radius:100% ;margin: 0 4px;*display:inline;*zoom:1;}
+		#slidot li:hover{background: #3b0;cursor: pointer;}
+		#slidot li.on{background: blue;}
+
+
+    </style>
+
+    <script type="text/javascript">
+        window.onload=function(){
+        //定义判断添加删除元素class方法
+        var hasClass=function(obj,cls){
+            return obj.className.match(new RegExp('(^|\\s)' + cls + '(\\s|$)'))
+        }
+        var addClass=function(obj,cls){
+          if(!hasClass(obj,cls)){
+            if(obj.className.length==0){obj.className=cls;}
+            else{obj.className+=" "+cls;}
+          }
+        }
+        var rvClass=function(obj,cls){
+          if(hasClass(obj,cls)){
+            var argu=new RegExp('(^|\\s)' + cls + '(\\s|$)');
+            obj.className=obj.className.replace(argu,"");
+          }
+        }
+
+        //开始
+        var prev=document.getElementById("prev"),
+          next=document.getElementById("next"),
+          imglist=document.getElementById("imglist").getElementsByTagName("div"),
+          dot=document.getElementById("slidot").getElementsByTagName("li"),
+          n=imglist.length,
+          index=0,
+          fade=false;
+        // 设置透明度  渐变
+        var setOpacity=function(obj,opa){
+          if(obj.filters){obj.style.filter="alpha(opacity:"+opa+")";}
+          else{obj.style.opacity=opa/100;}
+        }
+        var fadeIn=function(obj){
+          fade=true;
+          obj.style.display="block";
+          var opa=0;
+          (function func(){
+            if(opa<100){opa+=10;setOpacity(obj,opa);setTimeout(func,20)}
+            else{fade=false;}
+          })();
+        }
+        var fadeOut=function(obj){
+          fade=true;
+          var opa=100;
+          (function func(){
+            if(opa>0){opa-=10;setOpacity(obj,opa);setTimeout(func,30)}
+            else{obj.style.display="none";}
+          })();
+        }
+        //  同步点亮小圆点
+        function lightdot(){
+          for (var i=0;i<n;i++){
+            if(hasClass(dot[i],"on")){rvClass(dot[i],"on");break;}
+          }
+          addClass(dot[index],"on");
+        }
+        //  点击切换下一张
+        next.onclick=function(){
+          if(fade){return;}
+          else{
+          fadeOut(imglist[index]);
+          index++;
+          if(index==n)index=0;
+          fadeIn(imglist[index])
+          lightdot();
+          };
+        }
+        //   点击切换上一张
+        prev.onclick=function(){
+          if(fade){return;}
+          else{
+          fadeOut(imglist[index]);
+          if(index==0){index=n;}
+          index--;
+          fadeIn(imglist[index]);
+          lightdot();
+          }
+        }
+        //   圆点控制切换
+        for(var i=0;i<n;i++){
+          dot[i].order=i;
+          dot[i].onclick=function(){
+          if(this.order==index){return}
+          else{
+            fadeOut(imglist[index]);
+            index=this.order;
+            fadeIn(imglist[index]);
+            lightdot();}
+          }
+        }
+        // 自动播放启停
+        function play(){auto=setTimeout(function(){next.onclick();play();},3000)};
+        function stop(){clearTimeout(auto)};
+        play();
+        container.onmouseover=stop;
+        container.onmouseout=play;
+        }
+
+
+    </script>
+</head>
 <body>
+<div id="container">
+    <div id="imglist">
+        <div class="slidpic">
+            <img src="http://www.denpe.com/example/1.jpg" width="100%" height="auto">
+        </div>
+        <div class="slidpic">
+            <img src="http://www.denpe.com/example/2.jpg" width="100%" height="auto">
+        </div>
+        <div class="slidpic">
+            <img src="http://www.denpe.com/example/3.jpg" width="100%" height="auto">
+        </div>
+        <div class="slidpic">
+            <img src="http://www.denpe.com/example/4.jpg" width="100%" height="auto">
+        </div>
+        <div class="slidpic">
+            <img src="http://www.denpe.com/example/5.jpg" width="100%" height="auto">
+        </div>
+    </div>
 
-<!--<video width=100% height=auto controls="controls">-->
-<!--<source src="http://220.194.199.183/16/t/e/d/v/tedvmiwiohknqibyvmbwljvbvstfki/hc.yinyuetai.com/02AD01590020D7DB1D4D23856931882A.mp4?sc=ca8323d5262b43bb&br=781&rd=Android&crazycache=1">-->
-<!--</video>-->
-<!--2.<img src="/images/2017-02-04-ais.jpg" width=100% height=auto>-->
-<div>
-    <h4>1.先了解一下hexo的特性，以及做一些准备工作</h4>
-    <ul style="padding-left:20px;">
-        <li><a href="https://hexo.io/zh-cn/" target="_blank" rel="external">hexo</a></li>
+    <div id="buttons">
+        <i id="prev"><</i>
+        <i id="next">></i>
+    </div>
+
+    <ul id="slidot">
+        <li class="on"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
     </ul>
-    <h4>2.我用的是mac，这里就以mac举例子，其实大同小异。</h4>
-
-    &nbsp;&nbsp;&nbsp;&nbsp;<font size="3"> 2.1 首先需要检测以下的环境，Git大家基本上都有，剩下的就是node了</font>
-    <ul style="padding-left:20px;">
-        <li><a href="http://nodejs.org/" target="_blank" rel="external">Node.js</a></li>
-        <li><a href="http://git-scm.com/" target="_blank" rel="external">Git</a></li>
-    </ul>
-
-    &nbsp;&nbsp;&nbsp;&nbsp;<font size="3"> 2.2 node安装，有的话请略过</font><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="2"> 2.2.1首先更新一下安装源</font>
-    <ul style="padding-left:40px;">
-        <figure class="highlight bash">
-            <table>
-                <tr>
-                    <td class="code">
-                        <pre><div class="line">$ brew update</div></pre>
-                    </td>
-                </tr>
-            </table>
-        </figure>
-    </ul>
-
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="2"> 2.2.2安装node（翻墙的话可以直接执行第一行就可以）</font>
-    <ul style="padding-left:40px;">
-        <figure class="highlight bash">
-            <table>
-                <tr>
-                    <td class="code">
-                        <pre><div class="line">$ brew install node
-$ npm config set registry https://registry.npm.taobao.org --global
-$ npm config set disturl https://npm.taobao.org/dist --global</div></pre>
-                    </td>
-                </tr>
-            </table>
-        </figure>
-    </ul>
-
-    <a id="more"></a>
-
-    <h4>3.到此默认以上的环境全部安装完成。</h4>
-    <ul style="padding-left:20px;">
-        <figure class="highlight bash">
-            <table>
-                <tr>
-                    <td class="code">
-                        <pre><div class="line">$ npm install hexo-cli -g
-$ hexo init fanyafeng
-$ cd fanyafeng
-$ npm install
-$ hexo server</div></pre>
-                    </td>
-                </tr>
-            </table>
-        </figure>
-    </ul>
-    &nbsp;&nbsp;&nbsp;&nbsp;这样项目就运行起来了，以下是效果图（非原主题）
-    <img src="/images/2017-02-04-hexo2.png" width="100%" height="auto">
-
-    <h4>4.下面看一下目录结构以及首页(我这里换了一下主题)</h4>
-    <img src="/images/2017-02-04-hexo1.png" width="100%" height="auto">
-
 </div>
+<script>
+    (function(i,s,o,g,r,a,m){
+        i['GoogleAnalyticsObject']=r;
+        i[r]=i[r] ||
+        function(){(i[r].q=i[r].q || ).push(arguments)},
+        i[r].l=1*new Date();
+        a=s.createElement(o);
+        m=s.getElementsByTagName(o)[0];
+        a.async=1;
+        a.src=g;
+        m.parentNode.insertBefore(a,m);
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-60786254-1', 'auto');
+	ga('send', 'pageview');
+
+</script>
+
+<!--<h4>2.说一下实现思路</h4>-->
+<!--<div style="padding-left:20px;">-->
+    <!--<li>2.1 首先是先画一个坐标系，但是需要给标尺留出距离，我刚开始的时候就忘了留距离，后来又改的</li>-->
+    <!--<li>2.2 再有就是画一个折线图，折线图需要描点和标值</li>-->
+    <!--<li>2.3 需要画一个矩形范围</li>-->
+<!--</div>-->
+
+<!--<h4>3.在写代码之前先来考虑一下需要什么变量</h4>-->
+<!--<div style="padding-left:20px;">-->
+    <!--<li>3.1 自定义view的话首先需要确定view的宽高，还有就是他的原点是相对于自己的</li>-->
+    <!--<li>3.2 定义画笔，我刚开始的时候没有确定需要定义几个，需要的话我就去定义</li>-->
+    <!--<li>3.3 标尺，以及折线上字的位置</li>-->
+    <!--注：注意一些变量是可以定义成静态的，为了效率-->
+<!--</div>-->
 </body>
 </html>
       
@@ -370,7 +465,7 @@ $ hexo server</div></pre>
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/02/04/hexo_01/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/02/05/SlideShow_01/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -384,18 +479,18 @@ $ hexo server</div></pre>
   
 <nav id="article-nav">
   
-    <a href="/2017/02/04/hexo_02/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/02/06/BrokenLineView_02/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          使用hexo搭建自己的博客（二）
+          自定义折线图（二）
         
       </div>
     </a>
   
   
-    <a href="/2017/02/04/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2017/02/05/BrokenLineView_01/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">自定义折线图（一）</div>
       <i class="icon-circle-right"></i>
     </a>
   
