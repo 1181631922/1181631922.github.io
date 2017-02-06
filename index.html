@@ -167,7 +167,7 @@
 
         
         <a href="/2017/02/06/BrokenLineView_02/" class="archive-article-date">
-  	<time datetime="2017-02-06T02:24:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-06</time>
+  	<time datetime="2017-02-06T02:28:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-06</time>
 </a>
         
       </header>
@@ -182,7 +182,8 @@
     &nbsp;&nbsp;&nbsp;&nbsp;<font size="3">因为x和y轴需要标刻度，然后把坐标轴的原点没有定在左下角，而是向左上进行了平移，所以同时还需要把折线的x点同时加上坐标轴向左移动的距离。</font><br>
 
     <h4>2.上文中思路也说了，下面来定义一下需要的东西。</h4>
-    &nbsp;&nbsp;&nbsp;&nbsp;<font size="3">这次需要动态画曲线，阴影，标刻度，所以这些都是不确定的，我一般都是定义相应的set方法。我这里定义了四个set方法</font><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<font
+        size="3">这次需要动态画曲线，阴影，标刻度，所以这些都是不确定的，我一般都是定义相应的set方法。我这里定义了四个set方法</font><br>
     <div style="padding-left:20px;">
         <li>2.1 首先是需要定义一个bean，自定义的点：BrokenLinePointBean</li>
         <li>2.2 画曲线所需要的折点：setPointList(List points)</li>
@@ -192,134 +193,9 @@
         <li>2.4 x轴坐标标刻度：setXIndex(List XindexString)</li>
         <li>2.5 y轴坐标标刻度：setYIndex(List YindexString)</li>
     </div>
-
-    <h4>3.先来看一下运行效果</h4>
-    <img src="/images/2017-02-06-brokenlineview.gif" width="50%" height="auto">
-
-    <h4>4.看一下核心代码，主要是两块吧</h4>
-    &nbsp;&nbsp;&nbsp;&nbsp;<font size="3">4.1阴影绘制</font><br>
-    <ul style="padding-left:20px;">
-        <figure class="highlight bash">
-            <table>
-                <tr>
-                    <td class="code">
-                        <pre><div class="line">            if (PointY1.y > -1 && PointY2.y > -1) {
-            canvas.drawRect(indexWidth, PointY1.y * height, width, PointY2.y * height, shapePaint);
-
-            //y轴坐标1
-            Paint paintY1 = new Paint(Paint.ANTI_ALIAS_FLAG);
-            paintY1.setTextSize(30);
-            paintY1.setAntiAlias(true);
-            Rect rectY1 = new Rect(0, (int) (PointY1.y * height - 10), (int) indexWidth, (int) (PointY1.y * height + 10));//折线为圈，需要减去半径
-            paintY1.setColor(Color.WHITE);
-            canvas.drawRect(rectY1, paintY1);
-            Paint.FontMetricsInt fontMetricsIntY1 = paintY1.getFontMetricsInt();
-            int baseLineY1 = (rectY1.bottom + rectY1.top - fontMetricsIntY1.bottom - fontMetricsIntY1.top) / 2;
-            paintY1.setTextAlign(Paint.Align.CENTER);
-            paintY1.setColor(Color.BLACK);
-            canvas.drawText("y1点", rectY1.centerX(), baseLineY1, paintY1);
-
-            //y轴坐标2
-            Paint paintY2 = new Paint(Paint.ANTI_ALIAS_FLAG);
-            paintY2.setTextSize(30);
-            paintY2.setAntiAlias(true);
-            Rect rectY2 = new Rect(0, (int) (PointY2.y * height - 10), (int) indexWidth, (int) (PointY2.y * height + 10));//折线为圈，需要减去半径
-            paintY2.setColor(Color.WHITE);
-            canvas.drawRect(rectY2, paintY2);
-            Paint.FontMetricsInt fontMetricsIntY2 = paintY2.getFontMetricsInt();
-            int baseLineY2 = (rectY2.bottom + rectY2.top - fontMetricsIntY2.bottom - fontMetricsIntY2.top) / 2;
-            paintY2.setTextAlign(Paint.Align.CENTER);
-            paintY2.setColor(Color.BLACK);
-            canvas.drawText("y2点", rectY2.centerX(), baseLineY2, paintY2);
-            }</div></pre>
-                    </td>
-                </tr>
-            </table>
-        </figure>
-    </ul>
-
-    &nbsp;&nbsp;&nbsp;&nbsp;<font size="3">4.1折线以及x，y轴绘制</font><br>
-    <ul style="padding-left:20px;">
-        <figure class="highlight bash">
-            <table>
-                <tr>
-                    <td class="code">
-                        <pre><div class="line">        int size = points.size();
-        if (size != 0) {
-            //size+1份，每份长度
-            float eachLength = pWidth / (size + 1);
-
-            for (int i = 0; i < size; i++) {
-                float pointX1 = indexWidth + eachLength * (i + 1);
-                float pointY1 = points.get(i).y * height;
-
-                if (i != size - 1) {
-                    float pointX2 = indexWidth + eachLength * (i + 2);
-                    float pointY2 = points.get(i + 1).y * height;
-                    canvas.drawLine(pointX1, pointY1, pointX2, pointY2, pointPaint);
-
-                    canvas.drawCircle(pointX2, pointY2, 12, bigCirclePaint);
-                    canvas.drawCircle(pointX2, pointY2, 10, circlePaint);
-                }
-                canvas.drawCircle(pointX1, pointY1, 12, bigCirclePaint);
-                canvas.drawCircle(pointX1, pointY1, 10, circlePaint);
-
-                //折点标字
-                Paint paintBroken = new Paint(Paint.ANTI_ALIAS_FLAG);
-                paintBroken.setAntiAlias(true);
-                paintBroken.setTextSize(30);
-                Rect rectBroken = new Rect((int) pointX1 - 50, (int) pointY1 - 70, (int) pointX1 + 50, (int) pointY1 - 20);//折线为圈，需要减去半径
-                paintBroken.setColor(Color.TRANSPARENT);
-                canvas.drawRect(rectBroken, paintBroken);
-                Paint.FontMetricsInt fontMetricsIntBroken = paintBroken.getFontMetricsInt();
-                int baseLineBroken = (rectBroken.bottom + rectBroken.top - fontMetricsIntBroken.bottom - fontMetricsIntBroken.top) / 2;
-                paintBroken.setTextAlign(Paint.Align.CENTER);
-                paintBroken.setColor(Color.BLACK);
-                canvas.drawText(String.valueOf(points.get(i).y), rectBroken.centerX(), baseLineBroken, paintBroken);
-
-                //x刻度
-                Paint paintBrokenX = new Paint(Paint.ANTI_ALIAS_FLAG);
-                paintBrokenX.setAntiAlias(true);
-                paintBrokenX.setTextSize(30);
-                Rect rectBrokenX = new Rect((int) pointX1 - 50, (int) height, (int) pointX1 + 50, (int) (height + indexWidth));//折线为圈，需要减去半径
-                paintBrokenX.setColor(Color.TRANSPARENT);
-                canvas.drawRect(rectBrokenX, paintBrokenX);
-                Paint.FontMetricsInt fontMetricsIntBrokenX = paintBrokenX.getFontMetricsInt();
-                int baseLineBrokenX = (rectBrokenX.bottom + rectBrokenX.top - fontMetricsIntBrokenX.bottom - fontMetricsIntBrokenX.top) / 2;
-                paintBrokenX.setTextAlign(Paint.Align.CENTER);
-                paintBrokenX.setColor(Color.BLACK);
-                canvas.drawText(XindexString.size() > 0 ? XindexString.get(i) : String.valueOf(i + 1), rectBrokenX.centerX(), baseLineBrokenX, paintBrokenX);
-
-                //y刻度
-                Paint paintBrokenY = new Paint(Paint.ANTI_ALIAS_FLAG);
-                paintBrokenY.setTextSize(30);
-                paintBrokenY.setAntiAlias(true);
-                Rect rectBrokenY = new Rect(0, (int) pointY1 - 10, (int) indexWidth, (int) pointY1 + 10);//折线为圈，需要减去半径
-                paintBrokenY.setColor(Color.WHITE);
-                canvas.drawRect(rectBrokenY, paintBrokenY);
-                Paint.FontMetricsInt fontMetricsIntBrokenY = paintBrokenY.getFontMetricsInt();
-                int baseLineBrokenY = (rectBrokenY.bottom + rectBrokenY.top - fontMetricsIntBrokenY.bottom - fontMetricsIntBrokenY.top) / 2;
-                paintBrokenY.setTextAlign(Paint.Align.CENTER);
-                paintBrokenY.setColor(Color.BLACK);
-                canvas.drawText(YindexString.size() > 0 ? YindexString.get(i) : String.valueOf(i + 1), rectBrokenY.centerX(), baseLineBrokenY, paintBrokenY);
-            }
-        }
-        //x轴 轴应该最后画
-        canvas.drawLine(indexWidth, height, width, height, XPaint);
-        //y轴
-        canvas.drawLine(indexWidth, 0, indexWidth, height, YPaint);</div></pre>
-                    </td>
-                </tr>
-            </table>
-        </figure>
-    </ul>
-
-    <h4>5.项目源码（github）</h4>
-    <a href="https://github.com/1181631922/BrokenLineView" target="_blank" rel="external">折线图：https://github.com/1181631922/BrokenLineView</a>
-
-</div>
-</body>
-</html>
+        
+          <a class="article-more-a" href="/2017/02/06/BrokenLineView_02/#more">more >></a>
+        
       
 
       
