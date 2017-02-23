@@ -24,7 +24,7 @@
           });
 
           $(&quot;#btn2&quot;).click(function(){">
-<meta property="og:updated_time" content="2017-02-17T06:30:25.000Z">
+<meta property="og:updated_time" content="2017-02-17T07:09:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="测试">
 <meta name="twitter:description" content="$(document).ready(function(){
@@ -173,7 +173,7 @@
 
         
         <a href="/2017/02/17/我的测试/" class="archive-article-date">
-  	<time datetime="2017-02-17T06:30:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-17</time>
+  	<time datetime="2017-02-17T07:09:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-17</time>
 </a>
         
       </header>
@@ -200,33 +200,12 @@
 <body onload="MyAutoRun()">
 <div>
 
-    <p id="p">This is a paragraph.</p>
-    <p>This is another paragraph.</p>
-    <ol>
-        <li>List item 1</li>
-        <li>List item 2</li>
-        <li>List item 3</li>
-    </ol>
-    <button id="btn1">追加文本</button>
-    <button id="btn2">追加列表项</button>
+    <button type="button" onclick="MyAutoRun()">点击执行js</button><br>
 
-    <li id="b">改变颜色，我比较喜欢Material Design中的蓝色
-        <button type="button" onclick="changeColor()">执行</button>
-    </li>
-    <script>
-        function changeColor(){
-            x=document.getElementById("b");
-            x.style.color="#303F9F";
-        }
+    <font id="a"></font><br>
+    <font id="b"></font><br>
 
-
-
-    </script>
-
-    <font id="a"></font>
-
-    <button type="button" onclick="MyAutoRun()">点击执行js</button>
-
+    <img id="c" src="">
 
     <script language="JavaScript">
      var i=0;
@@ -234,7 +213,7 @@
 　　  {
         x=document.getElementById("a");
 
-        var info="大家好，我是码农，谢谢大家好，我是码农，谢谢大家好，我是码农，谢谢大家好，我是码农，谢谢大家好，我是码农，谢谢大家好，我是码农，谢谢大家好，我是码农，谢谢大家好，我是码农，谢谢大家好，我是码农，谢谢大家好，我是码农，谢谢大家好，我是码农，谢谢大家好，我是码农，谢谢大家好，我是码农，谢谢"
+        var info="大家好"
         var infoLength=info.length;
 
         $("#a").append(info.charAt(i));
@@ -242,11 +221,16 @@
         if(i<infoLength-1){
             setTimeout("MyAutoRun()",300);
         }
+        if(i==infoLength-1){
+            $(document).ready(MyRun());
+        }
         i++;
 　　  }
 
-
-
+      function MyRun(){
+      $("#b").append("只是测试而已");
+           element=document.getElementById('c');
+      }
 
     </script>
 </div>
@@ -322,6 +306,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/02/23/用环信来做一个聊天APP(一)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          基于环信的Android聊天APP（一）
+        
+      </div>
+    </a>
   
   
     <a href="/2017/02/13/回顾2016/" id="article-nav-older" class="article-nav-link-wrap">
