@@ -159,7 +159,7 @@
 
         
         <a href="/2017/03/14/Android热修复-腾讯Bugly(一)/" class="archive-article-date">
-  	<time datetime="2017-03-14T09:13:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-14</time>
+  	<time datetime="2017-03-14T09:15:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-14</time>
 </a>
         
       </header>
@@ -171,37 +171,14 @@
 <body>
 <div>
     <h4>1.如果想接入bugly更新的话第一步还是要看官方文档。</h4>
-    戳我查看<font size="3"><a style="color:red" href="https://bugly.qq.com/docs/user-guide/instruction-manual-android-upgrade/?v=20170307182353" target="_blank" rel="external">
+    戳我查看<font size="3"><a style="color:red"
+                          href="https://bugly.qq.com/docs/user-guide/instruction-manual-android-upgrade/?v=20170307182353">
     官方文档</a><br>&nbsp;&nbsp;&nbsp;&nbsp;注：需要手动创建一个名字为：<a style="color:red">tinker-support.gradle</a>
     的文件。<br>
-    来看一下我的目录结构：<br><img width="50%" height="auto" src="/images/2017-03-14-bugly1.png"></font>
-
-    <h4>2.如果看到此的话默认项目工程已经搭建成功，先来看如何进行一个简单的测试</h4>
-    <font size="3">这里大致说一下热更新的原理，是对dex-xxx打补丁，有一点需要注意就是对应的补丁需要打倒对应的apk下，bugly已经帮我们做了校验了，
-        这里大致分了两个校验：
-        <div style="padding-left:20px;">
-            <li>1.假设存在基础包，那么在进行打补丁包的时候需要基于相应的基础包目录下，这里tinker的gradle会进行严格校验。</li>
-            <li>2.如果你的基础apk包没有用户进行联网激活（只要有一个联网用户就算激活），那么补丁包是上传不成功的。</li>
-        </div>
-        tinker-support.gradle文件需要大家进行自己配置，这里两个红箭头的在打补丁包的时候必须要对应，多版本的话把下面的红框内的注释去掉就可以了。<br>
-        <img width="100%" height="auto" src="/images/2017-03-14-bugly2.png">
-    </font>
-
-    <h4>3.开始打包</h4>
-    <font size="3">&nbsp;&nbsp;&nbsp;&nbsp;先需要打一个release包，这个我们成为基础包，是给应用市场传的，供用户下载，再然后需要在对应的dir下打
-        补丁包，如果没有多渠道的话基本没什么争议，也不用注意啥，但是，如果是多渠道，想在每个渠道都有不同的显示的话那么渠道包需要单打，这个应该都知道，
-        下面会上图的，剩下的就是分发，需要上传到腾讯的bugly的后台，前提是你的基础包最少有一个用户激活才可以，关于补丁包下发的话腾讯已经帮你做好了统计了，
-        到此bugly的简单使用基本搞定，基本就是页面的更新，bug的修改。<br>
-        <a style="color:red">下面这个是无渠道的，或者可以理解为一个渠道</a><br>
-        <img width="50%" height="auto" src="/images/2017-03-14-bugly3.png"><br>
-        <a style="color:red">下面这个是多渠道</a><br>
-        <img style="margin-right:10%" width="40%" height="auto" src="/images/2017-03-14-bugly4.png">
-        <img width="40%" height="auto" src="/images/2017-03-14-bugly5.png">
-    </font>
-
-</div>
-</body>
-</html>
+    来看一下我的目录结构：<br><img width=50% height=auto src="/images/2017-03-14-bugly1.png"></font>
+        
+          <a class="article-more-a" href="/2017/03/14/Android热修复-腾讯Bugly(一)/#more">more >></a>
+        
       
 
       
