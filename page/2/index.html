@@ -146,6 +146,247 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="default-SlideShow_01" class="article article-type-default  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/05/SlideShow_01/">Js轮播图（一）</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/05/SlideShow_01/" class="archive-article-date">
+  	<time datetime="2017-02-05T07:36:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2></h2>
+<html>
+<head>
+    <style type="text/css">
+        body{background: #f4f4f4;}
+		#container{width: 100%;height: 553px;position:relative;margin-right: auto;margin-left: auto;vertical-align:middle;}
+		#imglist{margin: auto;position: absolute;top: 0; left: 0; bottom: 0; right: 0;}
+		#buttons,.slidpic{display: none;}
+		.slidpic{position: absolute;opacity:0}
+		.slidpic:first-child{display: block;opacity: 1;}
+		#buttons{display: block;}
+		#buttons i{width:30px; color:white;height:60px;line-height:60px; background: #333;cursor: pointer;opacity: 0.2;filter:alpha(opacity:20);font-family: simsun;display: block;text-align: center;font-size: 22px;font-weight: normal;font-style: normal;-moz-user-select: none;-webkit-user-select: none;
+		-ms-user-select: none;}
+
+		#buttons i:hover{opacity: 0.4;filter:alpha(opacity:40);}
+		#prev{position: absolute;z-index: 3;top: 230px;left: 30px;color: #fff;}
+		#next{position: absolute;z-index: 3;top: 230px;right: 30px;color: #fff;}
+		#slidot{position: absolute;bottom: 40px;left:340px;z-index: 3;margin: 0;padding: 0;}
+		#slidot li{list-style: none;display: inline-block;width: 14px;height: 14px;background:gray ;border-radius:100% ;margin: 0 4px;*display:inline;*zoom:1;}
+		#slidot li:hover{background: #3b0;cursor: pointer;}
+		#slidot li.on{background: blue;}
+
+
+    </style>
+
+    <script type="text/javascript">
+        window.onload=function(){
+        //定义判断添加删除元素class方法
+        var hasClass=function(obj,cls){
+            return obj.className.match(new RegExp('(^|\\s)' + cls + '(\\s|$)'))
+        }
+        var addClass=function(obj,cls){
+          if(!hasClass(obj,cls)){
+            if(obj.className.length==0){obj.className=cls;}
+            else{obj.className+=" "+cls;}
+          }
+        }
+        var rvClass=function(obj,cls){
+          if(hasClass(obj,cls)){
+            var argu=new RegExp('(^|\\s)' + cls + '(\\s|$)');
+            obj.className=obj.className.replace(argu,"");
+          }
+        }
+
+        //开始
+        var prev=document.getElementById("prev"),
+          next=document.getElementById("next"),
+          imglist=document.getElementById("imglist").getElementsByTagName("div"),
+          dot=document.getElementById("slidot").getElementsByTagName("li"),
+          n=imglist.length,
+          index=0,
+          fade=false;
+        // 设置透明度  渐变
+        var setOpacity=function(obj,opa){
+          if(obj.filters){obj.style.filter="alpha(opacity:"+opa+")";}
+          else{obj.style.opacity=opa/100;}
+        }
+        var fadeIn=function(obj){
+          fade=true;
+          obj.style.display="block";
+          var opa=0;
+          (function func(){
+            if(opa<100){opa+=10;setOpacity(obj,opa);setTimeout(func,20)}
+            else{fade=false;}
+          })();
+        }
+        var fadeOut=function(obj){
+          fade=true;
+          var opa=100;
+          (function func(){
+            if(opa>0){opa-=10;setOpacity(obj,opa);setTimeout(func,30)}
+            else{obj.style.display="none";}
+          })();
+        }
+        //  同步点亮小圆点
+        function lightdot(){
+          for (var i=0;i<n;i++){
+            if(hasClass(dot[i],"on")){rvClass(dot[i],"on");break;}
+          }
+          addClass(dot[index],"on");
+        }
+        //  点击切换下一张
+        next.onclick=function(){
+          if(fade){return;}
+          else{
+          fadeOut(imglist[index]);
+          index++;
+          if(index==n)index=0;
+          fadeIn(imglist[index])
+          lightdot();
+          };
+        }
+        //   点击切换上一张
+        prev.onclick=function(){
+          if(fade){return;}
+          else{
+          fadeOut(imglist[index]);
+          if(index==0){index=n;}
+          index--;
+          fadeIn(imglist[index]);
+          lightdot();
+          }
+        }
+        //   圆点控制切换
+        for(var i=0;i<n;i++){
+          dot[i].order=i;
+          dot[i].onclick=function(){
+          if(this.order==index){return}
+          else{
+            fadeOut(imglist[index]);
+            index=this.order;
+            fadeIn(imglist[index]);
+            lightdot();}
+          }
+        }
+        // 自动播放启停
+        function play(){auto=setTimeout(function(){next.onclick();play();},3000)};
+        function stop(){clearTimeout(auto)};
+        play();
+        container.onmouseover=stop;
+        container.onmouseout=play;
+        }
+
+
+    </script>
+</head>
+<body>
+<div id="container">
+    <div id="imglist">
+        <div class="slidpic">
+            <img src="http://www.denpe.com/example/1.jpg" width="100%" height="auto">
+        </div>
+        <div class="slidpic">
+            <img src="http://www.denpe.com/example/2.jpg" width="100%" height="auto">
+        </div>
+        <div class="slidpic">
+            <img src="http://www.denpe.com/example/3.jpg" width="100%" height="auto">
+        </div>
+        <div class="slidpic">
+            <img src="http://www.denpe.com/example/4.jpg" width="100%" height="auto">
+        </div>
+        <div class="slidpic">
+            <img src="http://www.denpe.com/example/5.jpg" width="100%" height="auto">
+        </div>
+    </div>
+
+    <div id="buttons">
+        <i id="prev"><</i>
+        <i id="next">></i>
+    </div>
+
+    <ul id="slidot">
+        <li class="on"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script>
+    (function(i,s,o,g,r,a,m){
+        i['GoogleAnalyticsObject']=r;
+        i[r]=i[r] ||
+        function(){(i[r].q=i[r].q || ).push(arguments)},
+        i[r].l=1*new Date();
+        a=s.createElement(o);
+        m=s.getElementsByTagName(o)[0];
+        a.async=1;
+        a.src=g;
+        m.parentNode.insertBefore(a,m);
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-60786254-1', 'auto');
+	ga('send', 'pageview');
+
+</script>
+
+<!--<h4>2.说一下实现思路</h4>-->
+<!--<div style="padding-left:20px;">-->
+    <!--<li>2.1 首先是先画一个坐标系，但是需要给标尺留出距离，我刚开始的时候就忘了留距离，后来又改的</li>-->
+    <!--<li>2.2 再有就是画一个折线图，折线图需要描点和标值</li>-->
+    <!--<li>2.3 需要画一个矩形范围</li>-->
+<!--</div>-->
+
+<!--<h4>3.在写代码之前先来考虑一下需要什么变量</h4>-->
+<!--<div style="padding-left:20px;">-->
+    <!--<li>3.1 自定义view的话首先需要确定view的宽高，还有就是他的原点是相对于自己的</li>-->
+    <!--<li>3.2 定义画笔，我刚开始的时候没有确定需要定义几个，需要的话我就去定义</li>-->
+    <!--<li>3.3 标尺，以及折线上字的位置</li>-->
+    <!--注：注意一些变量是可以定义成静态的，为了效率-->
+<!--</div>-->
+</body>
+</html>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/05/SlideShow_01/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="default-BrokenLineView_01" class="article article-type-default  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

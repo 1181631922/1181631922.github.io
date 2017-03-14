@@ -6,17 +6,45 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 博客</title>
+  <title>基于Bugly的热修复 | 博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="To be, or not to be!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="1.如果想接入bugly更新的话第一步还是要看官方文档。
+    戳我查看
+    官方文档&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;注：需要手动创建一个名字为：tinker-support.gradle
+    的文件。
+    来看一下我的目录结构：
+
+    2.如果看到此的话默认项目工程已经搭建成功，先来看如何进行一个简单的测试
+    这里大致说一下热更新的原理，是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于Bugly的热修复">
+<meta property="og:url" content="http://yoursite.com/2017/03/14/Android热修复-腾讯Bugly(一)/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="To be, or not to be!">
+<meta property="og:description" content="1.如果想接入bugly更新的话第一步还是要看官方文档。
+    戳我查看
+    官方文档&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;注：需要手动创建一个名字为：tinker-support.gradle
+    的文件。
+    来看一下我的目录结构：
+
+    2.如果看到此的话默认项目工程已经搭建成功，先来看如何进行一个简单的测试
+    这里大致说一下热更新的原理，是">
+<meta property="og:image" content="http://yoursite.com/images/2017-03-14-bugly1.png">
+<meta property="og:image" content="http://yoursite.com/images/2017-03-14-bugly2.png">
+<meta property="og:image" content="http://yoursite.com/images/2017-03-14-bugly3.png">
+<meta property="og:image" content="http://yoursite.com/images/2017-03-14-bugly4.png">
+<meta property="og:image" content="http://yoursite.com/images/2017-03-14-bugly5.png">
+<meta property="og:updated_time" content="2017-03-14T09:13:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="博客">
-<meta name="twitter:description" content="To be, or not to be!">
+<meta name="twitter:title" content="基于Bugly的热修复">
+<meta name="twitter:description" content="1.如果想接入bugly更新的话第一步还是要看官方文档。
+    戳我查看
+    官方文档&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;注：需要手动创建一个名字为：tinker-support.gradle
+    的文件。
+    来看一下我的目录结构：
+
+    2.如果看到此的话默认项目工程已经搭建成功，先来看如何进行一个简单的测试
+    这里大致说一下热更新的原理，是">
+<meta name="twitter:image" content="http://yoursite.com/images/2017-03-14-bugly1.png">
   
     <link rel="alternative" href="/atom.xml" title="博客" type="application/atom+xml">
   
@@ -144,296 +172,169 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="default-Android热修复-腾讯Bugly(一)" class="article article-type-default " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      基于Bugly的热修复
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-default">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/14/Android热修复-腾讯Bugly(一)/" class="archive-article-date">
+
+        
+        <a href="/2017/03/14/Android热修复-腾讯Bugly(一)/" class="archive-article-date">
   	<time datetime="2017-03-14T09:13:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-14</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/14/Android热修复-腾讯Bugly(一)/">基于Bugly的热修复</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2></h2>
+<html>
+<body>
+<div>
+    <h4>1.如果想接入bugly更新的话第一步还是要看官方文档。</h4>
+    戳我查看<font size="3"><a style="color:red" href="https://bugly.qq.com/docs/user-guide/instruction-manual-android-upgrade/?v=20170307182353" target="_blank" rel="external">
+    官方文档</a><br>&nbsp;&nbsp;&nbsp;&nbsp;注：需要手动创建一个名字为：<a style="color:red">tinker-support.gradle</a>
+    的文件。<br>
+    来看一下我的目录结构：<br><img width="50%" height="auto" src="/images/2017-03-14-bugly1.png"></font>
 
-        <div class="article-info info-on-right">
-          
-          
-
+    <h4>2.如果看到此的话默认项目工程已经搭建成功，先来看如何进行一个简单的测试</h4>
+    <font size="3">这里大致说一下热更新的原理，是对dex-xxx打补丁，有一点需要注意就是对应的补丁需要打倒对应的apk下，bugly已经帮我们做了校验了，
+        这里大致分了两个校验：
+        <div style="padding-left:20px;">
+            <li>1.假设存在基础包，那么在进行打补丁包的时候需要基于相应的基础包目录下，这里tinker的gradle会进行严格校验。</li>
+            <li>2.如果你的基础apk包没有用户进行联网激活（只要有一个联网用户就算激活），那么补丁包是上传不成功的。</li>
         </div>
-        <div class="clearfix"></div>
-    </header>
+        tinker-support.gradle文件需要大家进行自己配置，这里两个红箭头的在打补丁包的时候必须要对应，多版本的话把下面的红框内的注释去掉就可以了。<br>
+        <img width="100%" height="auto" src="/images/2017-03-14-bugly2.png">
+    </font>
+
+    <h4>3.开始打包</h4>
+    <font size="3">&nbsp;&nbsp;&nbsp;&nbsp;先需要打一个release包，这个我们成为基础包，是给应用市场传的，供用户下载，再然后需要在对应的dir下打
+        补丁包，如果没有多渠道的话基本没什么争议，也不用注意啥，但是，如果是多渠道，想在每个渠道都有不同的显示的话那么渠道包需要单打，这个应该都知道，
+        下面会上图的，剩下的就是分发，需要上传到腾讯的bugly的后台，前提是你的基础包最少有一个用户激活才可以，关于补丁包下发的话腾讯已经帮你做好了统计了，
+        到此bugly的简单使用基本搞定，基本就是页面的更新，bug的修改。<br>
+        <a style="color:red">下面这个是无渠道的，或者可以理解为一个渠道</a><br>
+        <img width="50%" height="auto" src="/images/2017-03-14-bugly3.png"><br>
+        <a style="color:red">下面这个是多渠道</a><br>
+        <img style="margin-right:10%" width="40%" height="auto" src="/images/2017-03-14-bugly4.png">
+        <img width="40%" height="auto" src="/images/2017-03-14-bugly5.png">
+    </font>
+
+</div>
+</body>
+</html>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/03/14/Android热修复-腾讯Bugly(一)/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-default">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/23/Android仿淘宝等电商购物车/" class="archive-article-date">
-  	<time datetime="2017-02-23T09:24:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-23</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/23/Android仿淘宝等电商购物车/">Android仿淘宝等电商购物车</a>
-    </h1>
+  
+    <a href="/2017/02/23/Android仿淘宝等电商购物车/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android仿淘宝等电商购物车</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Android热修复-腾讯Bugly(一)" data-title="基于Bugly的热修复" data-url="http://yoursite.com/2017/03/14/Android热修复-腾讯Bugly(一)/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-default">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/23/用环信来做一个聊天APP(三)/" class="archive-article-date">
-  	<time datetime="2017-02-23T08:07:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/23/用环信来做一个聊天APP(三)/">基于环信的Android聊天APP（三）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-default">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/23/用环信来做一个聊天APP(二)/" class="archive-article-date">
-  	<time datetime="2017-02-23T08:00:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/23/用环信来做一个聊天APP(二)/">基于环信的Android聊天APP（二）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-default">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/23/用环信来做一个聊天APP(一)/" class="archive-article-date">
-  	<time datetime="2017-02-23T07:16:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/23/用环信来做一个聊天APP(一)/">基于环信的Android聊天APP（一）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-default">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/17/我的测试/" class="archive-article-date">
-  	<time datetime="2017-02-17T07:09:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/17/我的测试/">测试</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-default">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/13/回顾2016/" class="archive-article-date">
-  	<time datetime="2017-02-13T09:18:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/13/回顾2016/">回顾2016</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-default">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/06/JavaScript简介/" class="archive-article-date">
-  	<time datetime="2017-02-06T09:34:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/06/JavaScript简介/">JavaScript简介</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-default">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/06/VideoPlayer/" class="archive-article-date">
-  	<time datetime="2017-02-06T09:33:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/06/VideoPlayer/">视频</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-default">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/06/BrokenLineView_02/" class="archive-article-date">
-  	<time datetime="2017-02-06T02:33:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/06/BrokenLineView_02/">自定义折线图（二）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -456,8 +357,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
