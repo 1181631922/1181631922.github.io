@@ -146,6 +146,157 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="default-VideoPlayer" class="article article-type-default  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/06/VideoPlayer/">视频</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/06/VideoPlayer/" class="archive-article-date">
+  	<time datetime="2017-02-06T09:33:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2></h2>
+<html>
+<body>
+<video id="videoplayer" width="100%" height="auto" controls="controls">
+    <source src="movie.ogg" type="video/ogg">
+    <source src="movie.mp4" type="video/mp4">
+    <source src="http://220.194.199.183/16/t/e/d/v/tedvmiwiohknqibyvmbwljvbvstfki/hc.yinyuetai.com/02AD01590020D7DB1D4D23856931882A.mp4?sc=ca8323d5262b43bb&br=781&rd=Android&crazycache=1">
+</video>
+
+<!--<button type="button" onclick="changeVideoSource()">更改视频</button>-->
+<!--<button type="button" onclick="getVideoUrl()">获取视频地址</button>-->
+<script>
+    function changeVideoSource(){
+        var videoplayer=document.getElementById("videoplayer");
+        videoplayer.src="http://ic.snssdk.com/neihan/video/playback/?video_id=dbbc0b0735a646c98a46b1d8c9ebeef9&quality=480p&line=0&is_gif=0.mp4";
+        videoplayer.load();
+    }
+
+</script>
+
+<script>
+    function getVideoUrl(){
+alert("你好你好");
+      var s=  $.get('http://ic.snssdk.com/neihan/video/playback/?video_id=dbbc0b0735a646c98a46b1d8c9ebeef9&quality=480p&line=0&is_gif=0.mp4');
+      alert(s);
+    }
+
+</script>
+</body>
+</html>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/06/VideoPlayer/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="default-BrokenLineView_02" class="article article-type-default  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/06/BrokenLineView_02/">自定义折线图（二）</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/06/BrokenLineView_02/" class="archive-article-date">
+  	<time datetime="2017-02-06T02:33:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2></h2>
+<html>
+<body>
+<div>
+    <h4>1.上文自定义折线图有bug，当时没细看，写自定义的时候突然惊醒了</h4>
+    &nbsp;&nbsp;&nbsp;&nbsp;<font size="3">因为x和y轴需要标刻度，然后把坐标轴的原点没有定在左下角，而是向左上进行了平移，所以同时还需要把折线的x点同时加上坐标轴向左移动的距离。</font><br>
+
+    <h4>2.上文中思路也说了，下面来定义一下需要的东西。</h4>
+    &nbsp;&nbsp;&nbsp;&nbsp;<font
+        size="3">这次需要动态画曲线，阴影，标刻度，所以这些都是不确定的，我一般都是定义相应的set方法。我这里定义了四个set方法</font><br>
+    <div style="padding-left:20px;">
+        <li>2.1 首先是需要定义一个bean，自定义的点：BrokenLinePointBean<font color="red">
+            （这里需要留意的是y是百分比，x基本没有用到）</font></li>
+        <li>2.2 画曲线所需要的折点：setPointList(List points)</li>
+        <li>2.3 画阴影所需要的两个点，主要是要确定y轴范围：setShapePaints(BrokenLinePointBean pointY1,
+            BrokenLinePointBean pointY2)
+        </li>
+        <li>2.4 x轴坐标标刻度：setXIndex(List XindexString)</li>
+        <li>2.5 y轴坐标标刻度：setYIndex(List YindexString)</li>
+    </div>
+        
+          <a class="article-more-a" href="/2017/02/06/BrokenLineView_02/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/06/BrokenLineView_02/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="default-SlideShow_01" class="article article-type-default  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

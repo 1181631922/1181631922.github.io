@@ -6,17 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017 | 博客</title>
+  <title>Kotlin初探（一） | 博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="To be, or not to be!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="博客">
-<meta property="og:url" content="http://yoursite.com/archives/2017/page/2/index.html">
+  <meta name="description" content="1.官网给出了个几个有点说明为什么Kotlin适合开发Android
+    
+        1.兼容性：Kotlin 与 JDK 6 完全兼容，保障了
+            Kotlin 应用程序可以在较旧的 Android 设备上运行而无任何问题。Kotlin 工具在 Android Studio 中会完全支持，并且兼容 Android
+            构建系统。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kotlin初探（一）">
+<meta property="og:url" content="http://yoursite.com/2017/10/24/Kotlin初探（一）/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="To be, or not to be!">
+<meta property="og:description" content="1.官网给出了个几个有点说明为什么Kotlin适合开发Android
+    
+        1.兼容性：Kotlin 与 JDK 6 完全兼容，保障了
+            Kotlin 应用程序可以在较旧的 Android 设备上运行而无任何问题。Kotlin 工具在 Android Studio 中会完全支持，并且兼容 Android
+            构建系统。">
+<meta property="og:updated_time" content="2017-10-24T08:02:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="博客">
-<meta name="twitter:description" content="To be, or not to be!">
+<meta name="twitter:title" content="Kotlin初探（一）">
+<meta name="twitter:description" content="1.官网给出了个几个有点说明为什么Kotlin适合开发Android
+    
+        1.兼容性：Kotlin 与 JDK 6 完全兼容，保障了
+            Kotlin 应用程序可以在较旧的 Android 设备上运行而无任何问题。Kotlin 工具在 Android Studio 中会完全支持，并且兼容 Android
+            构建系统。">
   
     <link rel="alternative" href="/atom.xml" title="博客" type="application/atom+xml">
   
@@ -144,242 +157,235 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="default-Kotlin初探（一）" class="article article-type-default " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Kotlin初探（一）
+    </h1>
+  
+
+        
+        <a href="/2017/10/24/Kotlin初探（一）/" class="archive-article-date">
+  	<time datetime="2017-10-24T08:02:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-24</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2></h2>
+<html>
+<body>
+<div>
+    <h4>1.官网给出了个几个有点说明为什么Kotlin适合开发Android</h4>
+    <div style="padding-left:20px;">
+        <li><font style="font-weight:bold;font-style:italic;">1.兼容性：</font>Kotlin 与 JDK 6 完全兼容，保障了
+            Kotlin 应用程序可以在较旧的 Android 设备上运行而无任何问题。Kotlin 工具在 Android Studio 中会完全支持，并且兼容 Android
+            构建系统。
+        </li>
+        <li><font style="font-weight:bold;font-style:italic;">2.性能：</font>由于非常相似的字节码结构，Kotlin
+            应用程序的运行速度与 Java 类似。 随着 Kotlin 对内联函数的支持，使用 lambda 表达式的代码通常比用 Java 写的代码运行得更快。
+        </li>
+        <li><font style="font-weight:bold;font-style:italic;">3.互操作性：</font>Kotlin 可与 Java 进行 100％
+            的互操作，允许在 Kotlin 应用程序中使用所有现有的 Android 库 。这包括注解处理，所以数据绑定和 Dagger 也是一样。
+        </li>
+        <li><font style="font-weight:bold;font-style:italic;">4.占用：</font>Kotlin 具有非常紧凑的运行时库，可以通过使用
+            ProGuard 进一步减少。 在实际应用程序中，Kotlin 运行时只增加几百个方法以及 .apk 文件不到 100K 大小。
+        </li>
+        <li><font style="font-weight:bold;font-style:italic;">5.编译时长：</font>Kotlin
+            支持高效的增量编译，所以对于清理构建会有额外的开销，增量构建通常与 Java 一样快或者更快。
+        </li>
+        <li><font style="font-weight:bold;font-style:italic;">6.学习曲线：</font>对于 Java 开发人员，Kotlin
+            入门很容易。包含在 Kotlin 插件中的自动 Java 到 Kotlin 的转换器有助于迈出第一步。
+        </li>
+    </div>
+
+    <font size="3" color="red">
+        注：根据测试感觉编译时间并没有更快，而且AS中的Kotlin插件转换为java有好多奇怪的错，还是需要自己去写，对于兼容性，性能和占用和他说的感觉没有什么区别，但是关于互操作性还是差了点，这里踩过几个坑，后文会说
+        <a href="https://www.kotlincn.net/docs/reference/android-overview.html" target="_blank" rel="external">戳我进入中文网</a>
+    </font>
+
+    <a id="more"></a>
+
+    <h4>2.AS中使用kotlin</h4>
+    <div style="padding-left:20px;">
+        &nbsp;&nbsp;&nbsp;&nbsp;1.在AndroidStudio中使用kotlin的话需要安装插件，这个老手的话都知道在plugins里面找，安装成功以后需要重启，不建议每次都更新到最新版，还是用稳定版最好，因为有些问题可能是插件的问题。<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;2.再有就是尽量不要用插件的java to kotlin，还是自己写一个是印象深刻，另一个是少一些奇怪的bug。<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;3.如果项目是新建的话，插件会自动帮你加上依赖，如果是中途想要加kotlin的话在新建完成以后会有提示让你加上依赖，new的话会让你选择是普通的java文件还是kotlin文件，准备工作就做完了<br>
+        在根目录的build.gradle中这样写就可以了：
+        <ul style="padding-left:20px;">
+            <figure class="highlight bash">
+                <table>
+                    <tr>
+                        <td class="code">
+                        <pre><div class="line">buildscript {
+    ext.kotlin_version = '1.1.2-4'
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.2.3'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}</div></pre>
+                        </td>
+                    </tr>
+                </table>
+            </figure>
+        </ul>
+    </div>
+
+    <h4>4.暂且说一下使用的感受</h4>
+    <div style="padding-left:20px;">
+        <li>
+            1.新项目直接用kotlin的话，如果把base和工具类封装好的话其实用起来挺好的，主要的难点就是要熟悉他的规则，规则麻烦写法简单，如果需要引用一些第三方库的话最好封装一下。
+        </li>
+        <li>
+            2.旧项目而且比较大，原来就封装过很多东西的话如果重写base或者封装一类的很蛋疼，有些东西java支持但是kotlin暂时不支持，不知道以后是不是支持，有些东西自己还是在原来的base上再重新抽取一层java
+            再在kotlin支持的情况下再去封装一层kotlin
+        </li>
+        <li>3.默认支持lambda表达式，而且写法很简单，如果对语法熟悉的话写起来很快，而且最主要的是空指针异常比较少</li>
+    </div>
+
+    <h4>5.下面是我一个小的demo，封装了一下base，写起来感觉挺舒服的，估计是新项目的原因吧</h4>
+    <a href="https://github.com/1181631922/KotlinDemo" target="_blank" rel="external">kotlin简单入门：https://github.com/1181631922/KotlinDemo</a>
+
+</div>
+</body>
+</html>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-default">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/06/VideoPlayer/" class="archive-article-date">
-  	<time datetime="2017-02-06T09:33:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/06/VideoPlayer/">视频</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/24/Kotlin初探（一）/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-default">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/06/BrokenLineView_02/" class="archive-article-date">
-  	<time datetime="2017-02-06T02:33:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-06</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/06/BrokenLineView_02/">自定义折线图（二）</a>
-    </h1>
+    <a href="/2017/10/24/Kotlin初探（二）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Kotlin初探（二）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/14/Android热修复-腾讯Bugly(一)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">基于Bugly的热修复(一)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Kotlin初探（一）" data-title="Kotlin初探（一）" data-url="http://yoursite.com/2017/10/24/Kotlin初探（一）/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-default">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/05/SlideShow_01/" class="archive-article-date">
-  	<time datetime="2017-02-05T07:36:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/05/SlideShow_01/">Js轮播图（一）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-default">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/05/BrokenLineView_01/" class="archive-article-date">
-  	<time datetime="2017-02-05T03:47:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/05/BrokenLineView_01/">自定义折线图（一）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-default">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/04/hexo_02/" class="archive-article-date">
-  	<time datetime="2017-02-04T09:57:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/04/hexo_02/">使用hexo搭建自己的博客（二）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-default">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/04/hexo_01/" class="archive-article-date">
-  	<time datetime="2017-02-04T06:44:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/04/hexo_01/">使用hexo搭建自己的博客（一）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/04/hello-world/" class="archive-article-date">
-  	<time datetime="2017-02-04T04:22:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/04/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-default">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/22/HappyNewYear/" class="archive-article-date">
-  	<time datetime="2017-01-22T07:53:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/22/HappyNewYear/">新年快乐</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2017/">&laquo; Prev</a><a class="page-number" href="/archives/2017/">1</a><span class="page-number current">2</span>
-    </nav>
-  
 
 
           </div>
@@ -402,8 +408,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
