@@ -146,6 +146,89 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="default-Kotlin初探（一）" class="article article-type-default  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/24/Kotlin初探（一）/">Kotlin初探（一）</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/24/Kotlin初探（一）/" class="archive-article-date">
+  	<time datetime="2017-10-24T08:11:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2></h2>
+<html>
+<body>
+<div>
+    <h4>1.官网给出了个几个有点说明为什么Kotlin适合开发Android</h4>
+    <div style="padding-left:20px;">
+        <li><font style="font-weight:bold;font-style:italic;">1.兼容性：</font>Kotlin 与 JDK 6 完全兼容，保障了
+            Kotlin 应用程序可以在较旧的 Android 设备上运行而无任何问题。Kotlin 工具在 Android Studio 中会完全支持，并且兼容 Android
+            构建系统。
+        </li>
+        <li><font style="font-weight:bold;font-style:italic;">2.性能：</font>由于非常相似的字节码结构，Kotlin
+            应用程序的运行速度与 Java 类似。 随着 Kotlin 对内联函数的支持，使用 lambda 表达式的代码通常比用 Java 写的代码运行得更快。
+        </li>
+        <li><font style="font-weight:bold;font-style:italic;">3.互操作性：</font>Kotlin 可与 Java 进行 100％
+            的互操作，允许在 Kotlin 应用程序中使用所有现有的 Android 库 。这包括注解处理，所以数据绑定和 Dagger 也是一样。
+        </li>
+        <li><font style="font-weight:bold;font-style:italic;">4.占用：</font>Kotlin 具有非常紧凑的运行时库，可以通过使用
+            ProGuard 进一步减少。 在实际应用程序中，Kotlin 运行时只增加几百个方法以及 .apk 文件不到 100K 大小。
+        </li>
+        <li><font style="font-weight:bold;font-style:italic;">5.编译时长：</font>Kotlin
+            支持高效的增量编译，所以对于清理构建会有额外的开销，增量构建通常与 Java 一样快或者更快。
+        </li>
+        <li><font style="font-weight:bold;font-style:italic;">6.学习曲线：</font>对于 Java 开发人员，Kotlin
+            入门很容易。包含在 Kotlin 插件中的自动 Java 到 Kotlin 的转换器有助于迈出第一步。
+        </li>
+    </div>
+
+    <font size="3" color="red">
+        注：根据测试感觉编译时间并没有更快，而且AS中的Kotlin插件转换为java有好多奇怪的错，还是需要自己去写，对于兼容性，性能和占用和他说的感觉没有什么区别，但是关于互操作性还是差了点，这里踩过几个坑，后文会说
+        <a href="https://www.kotlincn.net/docs/reference/android-overview.html">戳我进入中文网</a>可以去这看下入门介绍，感觉基础的使用看这些足够了<br>
+    </font>
+        
+          <a class="article-more-a" href="/2017/10/24/Kotlin初探（一）/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/24/Kotlin初探（一）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="default-Kotlin初探（二）" class="article article-type-default  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -200,89 +283,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/10/24/Kotlin初探（二）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="default-Kotlin初探（一）" class="article article-type-default  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/24/Kotlin初探（一）/">Kotlin初探（一）</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/24/Kotlin初探（一）/" class="archive-article-date">
-  	<time datetime="2017-10-24T08:02:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2></h2>
-<html>
-<body>
-<div>
-    <h4>1.官网给出了个几个有点说明为什么Kotlin适合开发Android</h4>
-    <div style="padding-left:20px;">
-        <li><font style="font-weight:bold;font-style:italic;">1.兼容性：</font>Kotlin 与 JDK 6 完全兼容，保障了
-            Kotlin 应用程序可以在较旧的 Android 设备上运行而无任何问题。Kotlin 工具在 Android Studio 中会完全支持，并且兼容 Android
-            构建系统。
-        </li>
-        <li><font style="font-weight:bold;font-style:italic;">2.性能：</font>由于非常相似的字节码结构，Kotlin
-            应用程序的运行速度与 Java 类似。 随着 Kotlin 对内联函数的支持，使用 lambda 表达式的代码通常比用 Java 写的代码运行得更快。
-        </li>
-        <li><font style="font-weight:bold;font-style:italic;">3.互操作性：</font>Kotlin 可与 Java 进行 100％
-            的互操作，允许在 Kotlin 应用程序中使用所有现有的 Android 库 。这包括注解处理，所以数据绑定和 Dagger 也是一样。
-        </li>
-        <li><font style="font-weight:bold;font-style:italic;">4.占用：</font>Kotlin 具有非常紧凑的运行时库，可以通过使用
-            ProGuard 进一步减少。 在实际应用程序中，Kotlin 运行时只增加几百个方法以及 .apk 文件不到 100K 大小。
-        </li>
-        <li><font style="font-weight:bold;font-style:italic;">5.编译时长：</font>Kotlin
-            支持高效的增量编译，所以对于清理构建会有额外的开销，增量构建通常与 Java 一样快或者更快。
-        </li>
-        <li><font style="font-weight:bold;font-style:italic;">6.学习曲线：</font>对于 Java 开发人员，Kotlin
-            入门很容易。包含在 Kotlin 插件中的自动 Java 到 Kotlin 的转换器有助于迈出第一步。
-        </li>
-    </div>
-
-    <font size="3" color="red">
-        注：根据测试感觉编译时间并没有更快，而且AS中的Kotlin插件转换为java有好多奇怪的错，还是需要自己去写，对于兼容性，性能和占用和他说的感觉没有什么区别，但是关于互操作性还是差了点，这里踩过几个坑，后文会说
-        <a href="https://www.kotlincn.net/docs/reference/android-overview.html">戳我进入中文网</a>
-    </font>
-        
-          <a class="article-more-a" href="/2017/10/24/Kotlin初探（一）/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/24/Kotlin初探（一）/">展开全文 >></a>
         </p>
       
 
