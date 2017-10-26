@@ -6,17 +6,39 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017 | 博客</title>
+  <title>Kotlin常用操作符 | 博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="To be, or not to be!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="博客">
-<meta property="og:url" content="http://yoursite.com/archives/2017/page/2/index.html">
+  <meta name="description" content="1.Elvis操作符?:
+    
+        如果？：左边的表达式非空，则操作符返回左边的结果，否则返回右边的结果（仅在左侧为空的时候右侧的表达式才会进行计算）。
+        val a=b?.length?:-1
+        val a:Int = if(b!=null) b.length else -1
+    
+
+    2.安全转换as?">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kotlin常用操作符">
+<meta property="og:url" content="http://yoursite.com/2017/10/26/Kotlin初探（三）/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="To be, or not to be!">
+<meta property="og:description" content="1.Elvis操作符?:
+    
+        如果？：左边的表达式非空，则操作符返回左边的结果，否则返回右边的结果（仅在左侧为空的时候右侧的表达式才会进行计算）。
+        val a=b?.length?:-1
+        val a:Int = if(b!=null) b.length else -1
+    
+
+    2.安全转换as?">
+<meta property="og:updated_time" content="2017-10-26T07:01:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="博客">
-<meta name="twitter:description" content="To be, or not to be!">
+<meta name="twitter:title" content="Kotlin常用操作符">
+<meta name="twitter:description" content="1.Elvis操作符?:
+    
+        如果？：左边的表达式非空，则操作符返回左边的结果，否则返回右边的结果（仅在左侧为空的时候右侧的表达式才会进行计算）。
+        val a=b?.length?:-1
+        val a:Int = if(b!=null) b.length else -1
+    
+
+    2.安全转换as?">
   
     <link rel="alternative" href="/atom.xml" title="博客" type="application/atom+xml">
   
@@ -144,269 +166,250 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="default-Kotlin初探（三）" class="article article-type-default " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Kotlin常用操作符
+    </h1>
+  
+
+        
+        <a href="/2017/10/26/Kotlin初探（三）/" class="archive-article-date">
+  	<time datetime="2017-10-26T07:01:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-26</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2></h2>
+<html>
+<body>
+<div>
+    <h4>1.Elvis操作符?:</h4>
+    <div style="padding-left:20px;">
+        如果？：左边的表达式非空，则操作符返回左边的结果，否则返回右边的结果（仅在左侧为空的时候右侧的表达式才会进行计算）。<br>
+        val a=b?.length?:-1<br>
+        val a:Int = if(b!=null) b.length else -1<br>
+    </div>
+
+    <h4>2.安全转换as?</h4>
+    <div style="padding-left:20px;">
+        当使用as转型的时候，可能会经常出现ClassCastException。所以，现在使用as?安全转型，当转型不成功的时候，它会返回null。
+        当使用intent传值时有可能会出现空字符串不能用as强制转型，这时需要使用as？<br>
+        val m:Int?=a as? Int<br>
+    </div>
+
+    <a id="more"></a>
+
+    <h4>3.冒号</h4>
+    <div style="padding-left:20px;">
+        用于类的继承，变量的定义<br>
+        1.类型和超类型（父类）之间的冒号前要有一个空格<br>
+        2.实例和类型之间的冒号前不要空格<br>
+        定义变量：var str: String?=null<br>
+        类的继承与变量定义：class MainActivity< T : Serializable>(str : String) : Activity<br>
+    </div>
+
+    <h4>4.类型判断符is</h4>
+    <div style="padding-left:20px;">
+        检查某个实例是否是某个类型，如果判断出属于某个类型，那么判断后的分支中可以直接当该类型使用，无需显式转换<br>
+        <ul style="padding-left:20px;">
+            <figure class="highlight bash">
+                <table>
+                    <tr>
+                        <td class="code">
+                        <pre><div class="line">fun getStringLength(obj: Any): Int?{
+            if(obj is String && obj.length>0)
+                return obj.length
+        }</div></pre>
+                        </td>
+                    </tr>
+                </table>
+            </figure>
+        </ul>
+    </div>
+
+    <h4>5.范围操作符 .. 以及 in</h4>
+    <div style="padding-left:20px;">
+        使用in运算符来检查某个数字是否在指定区间内
+        <ul style="padding-left:20px;">
+            <figure class="highlight bash">
+                <table>
+                    <tr>
+                        <td class="code">
+                        <pre><div class="line">if(i in 1..10){//i<=10&&i>=1
+                            println(i)
+                            }</=10&&i></div></pre>
+                        </td>
+                    </tr>
+                </table>
+            </figure>
+        </ul>
+        downTo()函数<br>
+        区间内循环：<br>
+        <ul style="padding-left:20px;">
+            <figure class="highlight bash">
+                <table>
+                    <tr>
+                        <td class="code">
+                        <pre><div class="line">for(i in 4 downTo 1){
+            println(i)//4321
+        }</div></pre>
+                        </td>
+                    </tr>
+                </table>
+            </figure>
+        </ul>
+        step()函数<br>
+        可以进行任意数量的迭代，而不是每次变化都是1<br>
+        <ul style="padding-left:20px;">
+            <figure class="highlight bash">
+                <table>
+                    <tr>
+                        <td class="code">
+                        <pre><div class="line">for(i in 1..4 step 2) println(i)//1 3
+        for(i in 4 downTo 1 step 2) println(i) //4 2</div></pre>
+                        </td>
+                    </tr>
+                </table>
+            </figure>
+        </ul>
+        多行输入符 三个双引号<br>
+        三引号的形式用来输入多行文本，也就是说在三引号之间输入的内容将被原样保留，之中的单引号和双引号不用转义，其中的不可见字符比如/n和/t都会被保留<br>
+        <ul style="padding-left:20px;">
+            <figure class="highlight bash">
+                <table>
+                    <tr>
+                        <td class="code">
+                        <pre><div class="line">val str="""
+        one
+        two
+        """
+        val str ="one\ntwo"
+        val str ="one"+"\n"+"two"</div></pre>
+                        </td>
+                    </tr>
+                </table>
+            </figure>
+        </ul>
+
+
+    </div>
+
+</div></body>
+</html>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-default">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/06/JavaScript简介/" class="archive-article-date">
-  	<time datetime="2017-02-06T09:34:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/06/JavaScript简介/">JavaScript简介</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/26/Kotlin初探（三）/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-default">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/06/VideoPlayer/" class="archive-article-date">
-  	<time datetime="2017-02-06T09:33:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-06</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/06/VideoPlayer/">视频</a>
-    </h1>
+  
+    <a href="/2017/10/25/Kotlin初探（二）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Kotlin初探（二）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Kotlin初探（三）" data-title="Kotlin常用操作符" data-url="http://yoursite.com/2017/10/26/Kotlin初探（三）/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-default">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/06/BrokenLineView_02/" class="archive-article-date">
-  	<time datetime="2017-02-06T02:33:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/06/BrokenLineView_02/">自定义折线图（二）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-default">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/05/SlideShow_01/" class="archive-article-date">
-  	<time datetime="2017-02-05T07:36:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/05/SlideShow_01/">Js轮播图（一）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-default">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/05/BrokenLineView_01/" class="archive-article-date">
-  	<time datetime="2017-02-05T03:47:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/05/BrokenLineView_01/">自定义折线图（一）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-default">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/04/hexo_02/" class="archive-article-date">
-  	<time datetime="2017-02-04T09:57:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/04/hexo_02/">使用hexo搭建自己的博客（二）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-default">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/04/hexo_01/" class="archive-article-date">
-  	<time datetime="2017-02-04T06:44:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/04/hexo_01/">使用hexo搭建自己的博客（一）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/04/hello-world/" class="archive-article-date">
-  	<time datetime="2017-02-04T04:22:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/04/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-default">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/22/HappyNewYear/" class="archive-article-date">
-  	<time datetime="2017-01-22T07:53:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/22/HappyNewYear/">新年快乐</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2017/">&laquo; Prev</a><a class="page-number" href="/archives/2017/">1</a><span class="page-number current">2</span>
-    </nav>
-  
 
 
           </div>
@@ -429,8 +432,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
