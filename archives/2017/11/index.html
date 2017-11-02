@@ -6,39 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Kotlin常用操作符 | 博客</title>
+  <title>Archives: 2017/11 | 博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.Elvis操作符?:
-    
-        如果？：左边的表达式非空，则操作符返回左边的结果，否则返回右边的结果（仅在左侧为空的时候右侧的表达式才会进行计算）。
-        val a=b?.length?:-1
-        val a:Int = if(b!=null) b.length else -1
-    
-
-    2.安全转换as?">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Kotlin常用操作符">
-<meta property="og:url" content="http://yoursite.com/2017/10/31/Kotlin初探（三）/index.html">
+  <meta name="description" content="To be, or not to be!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="博客">
+<meta property="og:url" content="http://yoursite.com/archives/2017/11/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="1.Elvis操作符?:
-    
-        如果？：左边的表达式非空，则操作符返回左边的结果，否则返回右边的结果（仅在左侧为空的时候右侧的表达式才会进行计算）。
-        val a=b?.length?:-1
-        val a:Int = if(b!=null) b.length else -1
-    
-
-    2.安全转换as?">
-<meta property="og:updated_time" content="2017-10-31T07:33:36.000Z">
+<meta property="og:description" content="To be, or not to be!">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kotlin常用操作符">
-<meta name="twitter:description" content="1.Elvis操作符?:
-    
-        如果？：左边的表达式非空，则操作符返回左边的结果，否则返回右边的结果（仅在左侧为空的时候右侧的表达式才会进行计算）。
-        val a=b?.length?:-1
-        val a:Int = if(b!=null) b.length else -1
-    
-
-    2.安全转换as?">
+<meta name="twitter:title" content="博客">
+<meta name="twitter:description" content="To be, or not to be!">
   
     <link rel="alternative" href="/atom.xml" title="博客" type="application/atom+xml">
   
@@ -166,525 +144,49 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="default-Kotlin初探（三）" class="article article-type-default " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Kotlin常用操作符
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-default">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/11/01/Kotlin初探（二）/" class="archive-article-date">
+  	<time datetime="2017-11-01T07:57:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-01</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/11/01/Kotlin初探（二）/">Kotlin初探（二）</a>
     </h1>
   
 
-        
-        <a href="/2017/10/31/Kotlin初探（三）/" class="archive-article-date">
-  	<time datetime="2017-10-31T07:33:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2></h2>
-<html>
-<body>
-<div>
-    <h4>1.Elvis操作符?:</h4>
-    <div style="padding-left:20px;">
-        如果？：左边的表达式非空，则操作符返回左边的结果，否则返回右边的结果（仅在左侧为空的时候右侧的表达式才会进行计算）。<br>
-        val a=b?.length?:-1<br>
-        val a:Int = if(b!=null) b.length else -1<br>
-    </div>
+        <div class="article-info info-on-right">
+          
+          
 
-    <h4>2.安全转换as?</h4>
-    <div style="padding-left:20px;">
-        当使用as转型的时候，可能会经常出现ClassCastException。所以，现在使用as?安全转型，当转型不成功的时候，它会返回null。
-        当使用intent传值时有可能会出现空字符串不能用as强制转型，这时需要使用as？<br>
-        val m:Int?=a as? Int<br>
-    </div>
-
-    <a id="more"></a>
-
-    <h4>3.冒号</h4>
-    <div style="padding-left:20px;">
-        用于类的继承，变量的定义<br>
-        1.类型和超类型（父类）之间的冒号前要有一个空格<br>
-        2.实例和类型之间的冒号前不要空格<br>
-        定义变量：var str: String?=null<br>
-        类的继承与变量定义：class MainActivity< T : Serializable>(str : String) : Activity<br>
-    </div>
-
-    <h4>4.类型判断符is</h4>
-    <div style="padding-left:20px;">
-        检查某个实例是否是某个类型，如果判断出属于某个类型，那么判断后的分支中可以直接当该类型使用，无需显式转换<br>
-        <ul style="padding-left:20px;">
-            <figure class="highlight bash">
-                <table>
-                    <tr>
-                        <td class="code">
-                        <pre><div class="line">fun getStringLength(obj: Any): Int?{
-            if(obj is String && obj.length>0)
-                return obj.length
-        }</div></pre>
-                        </td>
-                    </tr>
-                </table>
-            </figure>
-        </ul>
-    </div>
-
-    <h4>5.范围操作符 .. 以及 in</h4>
-    <div style="padding-left:20px;">
-        使用in运算符来检查某个数字是否在指定区间内
-        <ul style="padding-left:20px;">
-            <figure class="highlight bash">
-                <table>
-                    <tr>
-                        <td class="code">
-                        <pre><div class="line">if(i in 1..10){//i<=10&&i>=1
-                            println(i)
-                            }</=10&&i></div></pre>
-                        </td>
-                    </tr>
-                </table>
-            </figure>
-        </ul>
-        downTo()函数<br>
-        区间内循环：<br>
-        <ul style="padding-left:20px;">
-            <figure class="highlight bash">
-                <table>
-                    <tr>
-                        <td class="code">
-                        <pre><div class="line">for(i in 4 downTo 1){
-            println(i)//4321
-        }</div></pre>
-                        </td>
-                    </tr>
-                </table>
-            </figure>
-        </ul>
-        step()函数<br>
-        可以进行任意数量的迭代，而不是每次变化都是1<br>
-        <ul style="padding-left:20px;">
-            <figure class="highlight bash">
-                <table>
-                    <tr>
-                        <td class="code">
-                        <pre><div class="line">for(i in 1..4 step 2) println(i)//1 3
-        for(i in 4 downTo 1 step 2) println(i) //4 2</div></pre>
-                        </td>
-                    </tr>
-                </table>
-            </figure>
-        </ul>
-        多行输入符 三个双引号<br>
-        三引号的形式用来输入多行文本，也就是说在三引号之间输入的内容将被原样保留，之中的单引号和双引号不用转义，其中的不可见字符比如/n和/t都会被保留<br>
-        <ul style="padding-left:20px;">
-            <figure class="highlight bash">
-                <table>
-                    <tr>
-                        <td class="code">
-                        <pre><div class="line">val str="""
-        one
-        two
-        """
-        val str ="one\ntwo"
-        val str ="one"+"\n"+"two"</div></pre>
-                        </td>
-                    </tr>
-                </table>
-            </figure>
-        </ul>
-        forEach遍历<br>
-        遍历一个list可以用list.forEach{ b->
-        blist.add(b)
-        }
-    </div>
-
-    <h4>6.$符号</h4>
-    <div style="padding-left:20px;">
-        这个我感觉在拼串上用的比较方便一点
-        <ul style="padding-left:20px;">
-            <figure class="highlight bash">
-                <table>
-                    <tr>
-                        <td class="code">
-                        <pre><div class="line">val pair = Pair(1, "one")
- val (num, name) = pair
- println("num = $num, name = $name")
-                            </div></pre>
-                        </td>
-                    </tr>
-                </table>
-            </figure>
-        </ul>
-    </div>
-
-    <h4>7.==和===的区别</h4>
-    <div style="padding-left:20px;">
-        ==是判断是否相等，===判断值以及引用是否完全相等
-        <ul style="padding-left:20px;">
-            <figure class="highlight bash">
-                <table>
-                    <tr>
-                        <td class="code">
-                        <pre><div class="line">val num: Int = 128;
-val a:Int? = num
-val b:Int? = num
-println(a == b)
-print(a === b)</div></pre>
-                        </td>
-                    </tr>
-                </table>
-            </figure>
-        </ul>
-    </div>
-
-
-    <h4>8._（下划线）</h4>
-    <div style="padding-left:20px;">
-        我理解的是构造参数中在下文用不到的参数可以用_代替
-        <ul style="padding-left:20px;">
-            <figure class="highlight bash">
-                <table>
-                    <tr>
-                        <td class="code">
-                        <pre><div class="line">val book = Book(1, "英语")
-val (id, _) = book</div></pre>
-                        </td>
-                    </tr>
-                </table>
-            </figure>
-        </ul>
-    </div>
-
-    <h4>9.::符号</h4>
-    <div style="padding-left:20px;">
-        1.常见的是得到类的class对象
-        <ul style="padding-left:20px;">
-            <figure class="highlight bash">
-                <table>
-                    <tr>
-                        <td class="code">
-                        <pre><div class="line">//得到类的Class对象
-startActivity(Intent(this@KotlinActivity, MainActivity::class.java))
-//内联函数和reified后续介绍
-inline  fun < reified T> Gson.fromJson(json:String):T
-{
-    return fromJson(json, T::class.java)
-}</div></pre>
-                        </td>
-                    </tr>
-                </table>
-            </figure>
-        </ul>
-        2.方法的引用
-        <ul style="padding-left:20px;">
-            <figure class="highlight bash">
-                <table>
-                    <tr>
-                        <td class="code">
-                        <pre><div class="line">var setBook = setOf<string>("hello", "hi", "你好")
-//    setBook.forEach { print(it)}
-    setBook.forEach(::print)</string></div></pre>
-                        </td>
-                    </tr>
-                </table>
-            </figure>
-        </ul>
-
-        <h4>10.@符号</h4>
-        <div style="padding-left:20px;">
-            1.限定this的类型
-            <ul style="padding-left:20px;">
-                <figure class="highlight bash">
-                    <table>
-                        <tr>
-                            <td class="code">
-                        <pre><div class="line">class User {
-    inner class State{
-        fun getUser(): User{
-            //返回User
-            return this@User
-        }
-        fun getState(): State{
-            //返回State
-            return this@State
-        }
-    }
-}</div></pre>
-                            </td>
-                        </tr>
-                    </table>
-                </figure>
-            </ul>
-
-            2.跳出双层for循环
-            <ul style="padding-left:20px;">
-                <figure class="highlight bash">
-                    <table>
-                        <tr>
-                            <td class="code">
-                        <pre><div class="line">loop@ for (itemA in arraysA) {
-     var i : Int = 0
-      for (itemB in arraysB) {
-         i++
-         if (itemB > 2) {
-             break@loop
-         }
-
-         println("itemB:$itemB")
-     }
-
-}</div></pre>
-                            </td>
-                        </tr>
-                    </table>
-                </figure>
-            </ul>
-
-            3.命名函数自动定义标签（这个还不是很明白）
-            <ul style="padding-left:20px;">
-                <figure class="highlight bash">
-                    <table>
-                        <tr>
-                            <td class="code">
-                        <pre><div class="line">fun fun_run(){
-    run {
-        println("lambda")
-    }
-    var i: Int = run {
-        return@run 1
-    }
-    println("$i")
-    //匿名函数可以通过自定义标签进行跳转和返回
-    i = run (outer@{
-        return@outer 2
-    })
-    println(i)
-}</div></pre>
-                            </td>
-                        </tr>
-                    </table>
-                </figure>
-            </ul>
-
-            4.从循环方法中跳出
-            <ul style="padding-left:20px;">
-                <figure class="highlight bash">
-                    <table>
-                        <tr>
-                            <td class="code">
-                        <pre><div class="line">fun forEach_label(ints: List< Int>)
-{
-    var i =2
-    ints.forEach {
-        //forEach中无法使用continue和break;
-//        if (it == 0) continue //编译错误
-//        if (it == 2) /*break //编译错误 */
-        print(it)
-    }
-     run outer@{
-         ints.forEach {
-             if (it == 0) return@forEach //相当于在forEach函数中continue,实际上是从匿名函数返回
-             if (it == 2) return@outer //相当于在forEach函数中使用break,实际上是跳转到outer之外
-         }
-     }
-
-    if (i == 3)
-    {
-        //每个函数的名字代表一个函数地址，所以函数自动成为标签
-        return@forEach_label //等同于return
-    }
-}</div></pre>
-                            </td>
-                        </tr>
-                    </table>
-                </figure>
-            </ul>
         </div>
-
-        <h4>11.{}符号</h4>
-        <div style="padding-left:20px;">
-            这个还有->应该是lambda表达式
-            <ul style="padding-left:20px;">
-                <figure class="highlight bash">
-                    <table>
-                        <tr>
-                            <td class="code">
-                        <pre><div class="line">// 一个参数
-var callback: ((str: String) -> Unit)? = null
-callback = { println(it)}
-// 判断并使用
-callback?.invoke("hello")
-
-//两个参数
-var callback2: ((name: String, age: Int) -> Unit)? = null
-callback2 = { hello: String, world: Int -> println("$hello's age is $world") }
-callback2?.invoke("Tom", 22)
-
-var callback3 :((num1:Int, num2: Int)->String)? = null
-//类型可以推断
-callback3 = { num1, num2 ->
-    var res:Int = num1 + num2
-    res.toString()
-}
-
-println(callback3?.invoke(1, 2))</div></pre>
-                            </td>
-                        </tr>
-                    </table>
-                </figure>
-            </ul>
-        </div>
-
-        <h4>12.?问号</h4>
-        <div style="padding-left:20px;">
-            表示对象可能为空
-            <ul style="padding-left:20px;">
-                <figure class="highlight bash">
-                    <table>
-                        <tr>
-                            <td class="code">
-                        <pre><div class="line">//在变量类型后面加上问号，代表该变量是可空变量
-var name: String? = "zhangsan"
-/**
- * 如果str不能转为Int类型，则返回null
- */
-fun parseInt(str: String): Int? {
-  // (代码略)
-}
-b?.length //如果 b非空，就返回 b.length ，否则返回 null，这个表达式的类型是 Int? 。</div></pre>
-                            </td>
-                        </tr>
-                    </table>
-                </figure>
-            </ul>
-        </div>
-
-    </div>
-
-
-</div></body>
-</html>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/31/Kotlin初探（三）/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/11/01/Kotlin初探（二）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Kotlin初探（二）
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/10/24/Kotlin初探（一）/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Kotlin初探（一）</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-
-  
-  <div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Kotlin初探（三）" data-title="Kotlin常用操作符" data-url="http://yoursite.com/2017/10/31/Kotlin初探（三）/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
+    </div></section>
   
 
-
+    
 
 
           </div>
@@ -707,8 +209,8 @@ b?.length //如果 b非空，就返回 b.length ，否则返回 null，这个表
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

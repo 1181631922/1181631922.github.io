@@ -146,6 +146,79 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="default-Kotlin初探（二）" class="article article-type-default  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/01/Kotlin初探（二）/">Kotlin初探（二）</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/01/Kotlin初探（二）/" class="archive-article-date">
+  	<time datetime="2017-11-01T07:57:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2></h2>
+<html>
+<body>
+<div>
+    <h4>1.说一下老项目中遇到的一些比较头疼的问题</h4>
+    <div style="padding-left:20px;">
+        1.java中一个抽象类继承一个抽象类实现一个接口，但是继承的抽象类和实现的接口中有相同的方法是不会报错的，而且编译是没问题的，但是如果把这个抽象类改成
+        kotlin语法的话编译器是过不去的，解决方法要么把方法都抽到kotlin的那个类中，或者再用java包一层<br>
+        2.使用kotlin写一个类需要继承一个有泛型的抽象类，本以为<*,*>能解决问题，然而并不能，不能，不，能！！！因为泛型的三大类别，（类，接口）和函数全都
+        不能用型号投影，官方给的说法是：For example, if the type is declared as interface Function< in T, out U> we
+        can imagine the following star-projections
+        然而并没有什么卵用，可是如果是For Foo< out T>, where T is a covariant type parameter with the upper bound
+        TUpper, Foo<*> is equivalent to Foo< TUpper>. It means that when the T is unknown you can
+        safely read values of TUpper from Foo<*>.
+        这种情况下是可以的。如果用泛型的话还是要谨慎一些。<br>
+        3.对于map和list，kotlin都有对应的封装的方法参数，需要结合demo和源码去重写老代码<br>
+        4.在写一些bean，多层嵌套的时候会简化很多，这个就不赘述了，用一下就知道了<br>
+        暂时到这，有东西再更新<br>
+        5.在kotlin中写静态方法或者定义静态变量比较简单，用companion object {}包一下就可以，如果整个类都是静态方法的话在类前面加个object就可以了，调用
+        的时候和java有点区别，这是用java方法进行调用 CarLoanRepaymentFragment.Companion.newInstance(result)
+    </div>
+        
+          <a class="article-more-a" href="/2017/11/01/Kotlin初探（二）/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/01/Kotlin初探（二）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="default-Kotlin初探（三）" class="article article-type-default  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -198,79 +271,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/10/31/Kotlin初探（三）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="default-Kotlin初探（二）" class="article article-type-default  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/25/Kotlin初探（二）/">Kotlin初探（二）</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/25/Kotlin初探（二）/" class="archive-article-date">
-  	<time datetime="2017-10-25T02:25:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2></h2>
-<html>
-<body>
-<div>
-    <h4>1.说一下老项目中遇到的一些比较头疼的问题</h4>
-    <div style="padding-left:20px;">
-        1.java中一个抽象类继承一个抽象类实现一个接口，但是继承的抽象类和实现的接口中有相同的方法是不会报错的，而且编译是没问题的，但是如果把这个抽象类改成
-        kotlin语法的话编译器是过不去的，解决方法要么把方法都抽到kotlin的那个类中，或者再用java包一层<br>
-        2.使用kotlin写一个类需要继承一个有泛型的抽象类，本以为<*,*>能解决问题，然而并不能，不能，不，能！！！因为泛型的三大类别，（类，接口）和函数全都
-        不能用型号投影，官方给的说法是：For example, if the type is declared as interface Function< in T, out U> we
-        can imagine the following star-projections
-        然而并没有什么卵用，可是如果是For Foo< out T>, where T is a covariant type parameter with the upper bound
-        TUpper, Foo<*> is equivalent to Foo< TUpper>. It means that when the T is unknown you can
-        safely read values of TUpper from Foo<*>.
-        这种情况下是可以的。如果用泛型的话还是要谨慎一些。<br>
-        3.对于map和list，kotlin都有对应的封装的方法参数，需要结合demo和源码去重写老代码<br>
-        4.在写一些bean，多层嵌套的时候会简化很多，这个就不赘述了，用一下就知道了<br>
-        暂时到这，有东西再更新<br>
-        5.在kotlin中写静态方法或者定义静态变量比较简单，用companion object {}包一下就可以，如果整个类都是静态方法的话在类前面加个object就可以了，调用
-        的时候和java有点区别，这是用java方法进行调用 CarLoanRepaymentFragment.Companion.newInstance(result)
-    </*></*></*,*></div>
-
-</div></body>
-</html>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/25/Kotlin初探（二）/">展开全文 >></a>
         </p>
       
 
