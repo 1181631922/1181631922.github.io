@@ -146,6 +146,178 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="default-Glide使用_01" class="article article-type-default  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/24/Glide使用_01/">Glide使用</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/24/Glide使用_01/" class="archive-article-date">
+  	<time datetime="2018-01-24T09:26:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2></h2>
+<html>
+<body>
+<div>
+    <h4>1.引入glide依赖（4.5版本）</h4>
+    官方文档说的挺简单的
+    <a href="https://github.com/bumptech/glide" target="_blank" rel="external">点击查看官方文档</a>
+    ，4.3之前直接引入就可以了，
+    但是到了4.5有些问题，主要是它本身会去依赖com.android.support包，经过查看源码，他是这么写的：
+    <ul style="padding-left:20px;">
+        <figure class="highlight bash">
+            <table>
+                <tr>
+                    <td class="code">
+                        <pre><div class="line">api "com.android.support:support-fragment:${ANDROID_SUPPORT_VERSION}"
+compileOnly "com.android.support:appcompat-v7:${ANDROID_SUPPORT_VERSION}"</div></pre>
+                    </td>
+                </tr>
+            </table>
+        </figure>
+    </ul>
+    它会引入最新的包，我当时用的是26.1.0，而最新的则是27.0.2，这样会和我用的一些控件有冲突，下面是解决方法
+    <ul style="padding-left:20px;">
+        <figure class="highlight bash">
+            <table>
+                <tr>
+                    <td class="code">
+                        <pre><div class="line">compile ('com.github.bumptech.glide:glide:4.5.0',{
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'support-fragment'
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })</div></pre>
+                    </td>
+                </tr>
+            </table>
+        </figure>
+    </ul>
+    这样问题就得以解决了，依赖成功引入，下面开始使用
+    <h4>2.Glide的简单使用</h4>
+    用glide为的就是解决图片加载问题，glide 4.x较3.x改动挺大的，感觉使用方法上越来越趋近于fresco，如果是仅仅加载图片的话
+    以下就可以满足：
+    <ul style="padding-left:20px;">
+        <figure class="highlight bash">
+            <table>
+                <tr>
+                    <td class="code">
+                        <pre><div class="line">Glide.with(Context)
+    .load(imgUrl)
+    .into(imageView)</div></pre>
+                    </td>
+                </tr>
+            </table>
+        </figure>
+    </ul>
+
+    <h4>3.Glide自定义配置使用</h4>
+    我用的是kotlin和java混合使用的，出现了bug，查阅了一下官网github还有bug，
+    <a href="https://github.com/bumptech/glide/issues/1939" target="_blank" rel="external">官方说明七天以后应该会解决</a><br>
+    看一下官方自定义的配置吧，一般咱们最在乎的是图片的默认存储位置（感觉也不是很在乎，说在乎是因为增删改查，但是如果api提供了
+    很好的增删改查的方法其实也就不是很在乎了），再有就是内存默认大小（自我感觉框架做的配置已经很好了），缓存的大小，日志输出level
+    <div style="padding-left:20px;">
+        <li><font style="font-weight:bold;font-style:italic;">1.图片存储位置</font>Glide.java类源码可以知道
+            <ul style="padding-left:20px;">
+                <figure class="highlight bash">
+                    <table>
+                        <tr>
+                            <td class="code">
+                        <pre><div class="line">//package com.bumptech.glide;
+private static final String DEFAULT_DISK_CACHE_DIR = "image_manager_disk_cache";</div></pre>
+                            </td>
+                        </tr>
+                    </table>
+                </figure>
+            </ul>
+            具体位置需要root手机才能看到，而且图片的存储的命名不是常用的（这里以jpg为例，图片的后缀为.0），具体位置：<br>
+            <ul style="padding-left:20px;">
+                <figure class="highlight bash">
+                    <table>
+                        <tr>
+                            <td class="code">
+                                <pre><div class="line">/data/data/com.fanyafeng.mlmoduletest/cache/image_manager_disk_cache</div></pre>
+                            </td>
+                        </tr>
+                    </table>
+                </figure>
+            </ul>
+        </li>
+        <li><font style="font-weight:bold;font-style:italic;">2.内存默认大小：</font>api中的内存是根据不同屏幕分辨率设置的
+            <ul style="padding-left:20px;">
+                <figure class="highlight bash">
+                    <table>
+                        <tr>
+                            <td class="code">
+                                <pre><div class="line">//package com.bumptech.glide.load.engine.cache.MemorySizeCalculator
+    if (targetMemoryCacheSize + targetBitmapPoolSize <= availablesize)="" {="" memorycachesize="targetMemoryCacheSize;" bitmappoolsize="targetBitmapPoolSize;" }="" else="" float="" part="availableSize" (builder.bitmappoolscreens="" +="" builder.memorycachescreens);="" *="" builder.bitmappoolscreens);="" }<="" div=""></=></div></pre>
+                            </td>
+                        </tr>
+                    </table>
+                </figure>
+            </ul>
+        </li>
+        <li><font style="font-weight:bold;font-style:italic;">3.缓存默认大小</font>
+            <ul style="padding-left:20px;">
+                <figure class="highlight bash">
+                    <table>
+                        <tr>
+                            <td class="code">
+                        <pre><div class="line">//package com.bumptech.glide.load.engine.cache.DiskCache
+    /** 250 MB of cache. */
+    int DEFAULT_DISK_CACHE_SIZE = 250 * 1024 * 1024;
+    String DEFAULT_DISK_CACHE_DIR = "image_manager_disk_cache";</div></pre>
+                            </td>
+                        </tr>
+                    </table>
+                </figure>
+            </ul>
+        </li>
+
+    </div>
+
+</div>
+</body>
+</html>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/24/Glide使用_01/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="default-Kotlin初探（二）" class="article article-type-default  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -894,85 +1066,6 @@
 
 
   
-    <article id="default-回顾2016" class="article article-type-default  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/13/回顾2016/">回顾2016</a>
-    </h1>
-  
-
-        
-        <a href="/2017/02/13/回顾2016/" class="archive-article-date">
-  	<time datetime="2017-02-13T09:18:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2></h2>
-<html>
-<body>
-
-<SCRIPT LANGUAGE="JavaScript">
-var code=unescape("function%20checkInput%28%28%7B%0A%20%20var%20password%3Dprompt%28%22%u8BF7%u8F93%u5165%u5BC6%u7801%22%2C%22%u5BC6%u7801%22%29%0A%20%20if%20%28password%21%3Dnull%20%26%26%20password%21%3D%22%22%20%26%26%20password%3D%3D%22%u53BB%u56DE%u5FC6%u7684%u56DE%u5FC6%22%29%7B%0A%20%20%20%20alert%28%22%u60A8%u8F93%u5165%u7684%u5BC6%u7801%u6B63%u786E%22%29%3B%0A%20%20%20%20%7Delse%7B%0A%20%20%20%20alert%28%22%u60A8%u8F93%u5165%u7684%u5BC6%u7801%u4E0D%u6B63%u786E%22%29%3B%0A%20%20%20%20%7D%0A%20%20%5R");
-eval(code)
-</SCRIPT>
-
-<SCRIPT LANGUAGE="JavaScript">
-var code=unescape("function%20checkInput%28%28%7B%0A%20%20var%20password%3Dprompt%28%22%u8BF7%u8F93%u5165%u5BC6%u7801%22%2C%22%u5BC6%u7801%22%29%0A%20%20if%20%28password%21%3Dnull%20%26%26%20password%21%3D%22%22%20%26%26%20password%3D%3D%22%u53BB%u56DE%u5FC6%u7684%u56DE%u5FC6%22%29%7B%0A%20%20%20%20alert%28%22%u60A8%u8F93%u5165%u7684%u5BC6%u7801%u6B63%u786E%22%29%3B%0A%20%20%20%20%7Delse%7B%0A%20%20%20%20alert%28%22%u60A8%u8F93%u5165%u7684%u5BC6%u7801%u4E0D%u6B63%u786E%22%29%3B%0A%20%20%20%20%7D%0A%20%20%7D");
-eval(code)
-</SCRIPT>
-
-
-<SCRIPT LANGUAGE="JavaScript">
-var code=unescape("function%20checkInput%28%28%7B%0A%20%20var%20password%3Dprompt%49%22%u8BF7%u8F93%u5165%u5BC6%u7801%22%2C%22%u5BC6%u7801%22%29%0A%20%20if%20%28password%21%3Dnull%20%26%26%20password%21%3D%22%22%20%26%26%20password%3D%3D%22%u53BB%u56DE%u5FC6%u7684%u56DE%u5FC6%22%29%7B%0A%20%20%20%20alert%28%22%u60A8%u8F93%u5165%u7684%u5BC6%u7801%u6B63%u786E%22%29%3B%0A%20%20%20%20%7Delse%7B%0A%20%20%20%20alert%28%22%u60A8%u8F94%u5165%u7684%u5BC6%u7801%u4E0D%u6B63%u786E%22%29%3B%0A%20%20%20%20%7D%0A%20%20%7D");
-eval(code)
-</SCRIPT>
-
-<SCRIPT LANGUAGE="JavaScript">
-var code=unescape("function%20checkInput%28%28%7B%0B%20%21var%20password%3Dprompt%28%21%u8BF7%u8F93%u5165%u5BC6%u7801%21%2C%22%u5BC6%u7801%22%29%0A%20%20if%20%28password%21%3Dnull%20%26%26%20password%21%3D%22%22%20%26%26%20password%3D%3D%22%u53BB%u56DE%u5FC6%u7684%u56DE%u5FC6%22%29%7B%0A%20%20%20%20alert%28%22%u60A8%u8F93%u5165%u7684%u5BC6%u7801%u6B63%u786E%22%29%3B%0A%21%20%20%20%7Delse%7B%0A%20%20%20%20alert%28%22%u60A8%u8F93%u5165%u7684%u5BC6%u7801%u4E0D%u6B63%u786E%22%29%3B%0A%20%20%20%20%7D%0A%20%20%7D");
-eval(code)
-</SCRIPT>
-
-各中酸甜苦辣用个表情概括吧~~~<br>
-<img width=50% height=auto src="/images/2017-02-13-crysmile.jpg"><br>
-        
-          <a class="article-more-a" href="/2017/02/13/回顾2016/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/13/回顾2016/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -987,7 +1080,7 @@ eval(code)
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 樊亚风
+    		&copy; 2018 樊亚风
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
