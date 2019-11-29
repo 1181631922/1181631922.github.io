@@ -6,41 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JavaScript简介 | 博客</title>
+  <title>Glide使用_1(Glide简单引入及使用) | 博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.javaScript:更改html中内容或样式
-    document.write(&quot;This is a heading&quot;);
-        执行
-    
-    
-        function writeText(){
-            x=document.getElementById(&quot;a&quot;);
-            x.innerHTML=&quot;This">
+  <meta name="description" content="1.引入glide依赖（4.5版本）
+    官方文档说的挺简单的
+    点击查看官方文档
+    ，4.3之前直接引入就可以了，
+    但是到了4.5有些问题，主要是它本身会去依赖com.android.support包，经过查看源码，他是这么写的：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript简介">
-<meta property="og:url" content="http://yoursite.com/2017/02/06/JavaScript简介/index.html">
+<meta property="og:title" content="Glide使用_1(Glide简单引入及使用)">
+<meta property="og:url" content="http://yoursite.com/2018/03/20/Glide使用_01/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="1.javaScript:更改html中内容或样式
-    document.write(&quot;This is a heading&quot;);
-        执行
-    
-    
-        function writeText(){
-            x=document.getElementById(&quot;a&quot;);
-            x.innerHTML=&quot;This">
-<meta property="og:image" content="http://yoursite.com/images/fanyafeng_alipay.jpeg">
-<meta property="og:updated_time" content="2017-02-06T09:34:26.000Z">
+<meta property="og:description" content="1.引入glide依赖（4.5版本）
+    官方文档说的挺简单的
+    点击查看官方文档
+    ，4.3之前直接引入就可以了，
+    但是到了4.5有些问题，主要是它本身会去依赖com.android.support包，经过查看源码，他是这么写的：">
+<meta property="og:updated_time" content="2018-03-20T07:52:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript简介">
-<meta name="twitter:description" content="1.javaScript:更改html中内容或样式
-    document.write(&quot;This is a heading&quot;);
-        执行
-    
-    
-        function writeText(){
-            x=document.getElementById(&quot;a&quot;);
-            x.innerHTML=&quot;This">
-<meta name="twitter:image" content="http://yoursite.com/images/fanyafeng_alipay.jpeg">
+<meta name="twitter:title" content="Glide使用_1(Glide简单引入及使用)">
+<meta name="twitter:description" content="1.引入glide依赖（4.5版本）
+    官方文档说的挺简单的
+    点击查看官方文档
+    ，4.3之前直接引入就可以了，
+    但是到了4.5有些问题，主要是它本身会去依赖com.android.support包，经过查看源码，他是这么写的：">
   
     <link rel="alternative" href="/atom.xml" title="博客" type="application/atom+xml">
   
@@ -168,20 +157,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="default-JavaScript简介" class="article article-type-default " itemscope itemprop="blogPost">
+            <article id="default-Glide使用_01" class="article article-type-default " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JavaScript简介
+      Glide使用_1(Glide简单引入及使用)
     </h1>
   
 
         
-        <a href="/2017/02/06/JavaScript简介/" class="archive-article-date">
-  	<time datetime="2017-02-06T09:34:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-06</time>
+        <a href="/2018/03/20/Glide使用_01/" class="archive-article-date">
+  	<time datetime="2018-03-20T07:52:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-20</time>
 </a>
         
       </header>
@@ -191,81 +180,123 @@
         <h2></h2>
 <html>
 <body>
-
 <div>
-    <h4>1.javaScript:更改html中内容或样式</h4>
-    <li id="a">document.write("<font size="2">This is a heading</font>");
-        <button type="button" onclick="writeText()">执行</button>
-    </li>
-    <script>
-        function writeText(){
-            x=document.getElementById("a");
-            x.innerHTML="This is a heading";
-         }
-
-
-    </script>
-
-    <li id="b">改变颜色，我比较喜欢Material Design中的蓝色
-        <button type="button" onclick="changeColor()">执行</button>
-    </li>
-    <script>
-        function changeColor(){
-            x=document.getElementById("b");
-            x.style.color="#303F9F";
-        }
-
-
-    </script>
-
-    <li id="c">改变图像
-        <button type="button" onclick="changeImg()">改变图片</button>
-        <br><img id="d" src="/images/fanyafeng_alipay.jpeg" width="50%" height="auto"></li>
-    <script>
-        function changeImg(){
-            element=document.getElementById('d');
-            if(element.src.match("alipay")){
-                element.src="/images/fanyafeng_wechat.jpeg";
-            }else{
-                element.src="/images/fanyafeng_alipay.jpeg";
-            }
-        }
-
-
-    </script>
-
-    <li id="e">校验输入<input id="f" type="text">
-        <button style="margin-left:20px;" type="button" onclick="checkInput()">校验</button>
-    </li>
-    <script>
-        function checkInput(){
-            var x=document.getElementById("f").value;
-            if(x=="" || isNaN(x)){
-                alert("输入非数字");
-            }else{
-                alert("输入为数字");
-            }
-        }
-
-
-    </script>
-
+    <h4>1.引入glide依赖（4.5版本）</h4>
+    官方文档说的挺简单的
+    <a href="https://github.com/bumptech/glide" target="_blank" rel="external">点击查看官方文档</a>
+    ，4.3之前直接引入就可以了，
+    但是到了4.5有些问题，主要是它本身会去依赖com.android.support包，经过查看源码，他是这么写的：
+    <ul style="padding-left:20px;">
+        <figure class="highlight bash">
+            <table>
+                <tr>
+                    <td class="code">
+                        <pre><div class="line">api "com.android.support:support-fragment:${ANDROID_SUPPORT_VERSION}"
+compileOnly "com.android.support:appcompat-v7:${ANDROID_SUPPORT_VERSION}"</div></pre>
+                    </td>
+                </tr>
+            </table>
+        </figure>
+    </ul>
+    它会引入最新的包，我当时用的是26.1.0，而最新的则是27.0.2，这样会和我用的一些控件有冲突，下面是解决方法
+    <ul style="padding-left:20px;">
+        <figure class="highlight bash">
+            <table>
+                <tr>
+                    <td class="code">
+                        <pre><div class="line">compile ('com.github.bumptech.glide:glide:4.5.0',{
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'support-fragment'
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })</div></pre>
+                    </td>
+                </tr>
+            </table>
+        </figure>
+    </ul>
+    这样问题就得以解决了，依赖成功引入，下面开始使用<br>
     <a id="more"></a>
+    <h4>2.Glide的简单使用</h4>
+    用glide为的就是解决图片加载问题，glide 4.x较3.x改动挺大的，感觉使用方法上越来越趋近于fresco，如果是仅仅加载图片的话
+    以下就可以满足：
+    <ul style="padding-left:20px;">
+        <figure class="highlight bash">
+            <table>
+                <tr>
+                    <td class="code">
+                        <pre><div class="line">Glide.with(Context)
+    .load(imgUrl)
+    .into(imageView)</div></pre>
+                    </td>
+                </tr>
+            </table>
+        </figure>
+    </ul>
 
-    <h4>2.通过javascript代码改变一些控件的属性</h4>
-    <li><font id="g">测试汉字</font><button type="button" onclick="GetRequests()">获取get请求</button></li>
+    <h4>3.Glide自定义配置使用</h4>
+    我用的是kotlin和java混合使用的，出现了bug，查阅了一下官网github还有bug，
+    <a href="https://github.com/bumptech/glide/issues/1939" target="_blank" rel="external">官方说明七天以后应该会解决</a><br>
+    看一下官方自定义的配置吧，一般咱们最在乎的是图片的默认存储位置（感觉也不是很在乎，说在乎是因为增删改查，但是如果api提供了
+    很好的增删改查的方法其实也就不是很在乎了），再有就是内存默认大小（自我感觉框架做的配置已经很好了），缓存的大小，日志输出level
+    <div style="padding-left:20px;">
+        <li><font style="font-weight:bold;font-style:italic;">1.图片存储位置</font>Glide.java类源码可以知道
+            <ul style="padding-left:20px;">
+                <figure class="highlight bash">
+                    <table>
+                        <tr>
+                            <td class="code">
+                        <pre><div class="line">//package com.bumptech.glide;
+private static final String DEFAULT_DISK_CACHE_DIR = "image_manager_disk_cache";</div></pre>
+                            </td>
+                        </tr>
+                    </table>
+                </figure>
+            </ul>
+            具体位置需要root手机才能看到，而且图片的存储的命名不是常用的（这里以jpg为例，图片的后缀为.0），具体位置：<br>
+            <ul style="padding-left:20px;">
+                <figure class="highlight bash">
+                    <table>
+                        <tr>
+                            <td class="code">
+                                <pre><div class="line">/data/data/com.fanyafeng.mlmoduletest/cache/image_manager_disk_cache</div></pre>
+                            </td>
+                        </tr>
+                    </table>
+                </figure>
+            </ul>
+        </li>
+        <li><font style="font-weight:bold;font-style:italic;">2.内存默认大小：</font>api中的内存是根据不同屏幕分辨率设置的
+            <ul style="padding-left:20px;">
+                <figure class="highlight bash">
+                    <table>
+                        <tr>
+                            <td class="code">
+                                <pre><div class="line">//package com.bumptech.glide.load.engine.cache.MemorySizeCalculator
+    if (targetMemoryCacheSize + targetBitmapPoolSize <= availablesize)="" {="" memorycachesize="targetMemoryCacheSize;" bitmappoolsize="targetBitmapPoolSize;" }="" else="" float="" part="availableSize" (builder.bitmappoolscreens="" +="" builder.memorycachescreens);="" *="" builder.bitmappoolscreens);="" }<="" div=""></=></div></pre>
+                            </td>
+                        </tr>
+                    </table>
+                </figure>
+            </ul>
+        </li>
+        <li><font style="font-weight:bold;font-style:italic;">3.缓存默认大小</font>
+            <ul style="padding-left:20px;">
+                <figure class="highlight bash">
+                    <table>
+                        <tr>
+                            <td class="code">
+                        <pre><div class="line">//package com.bumptech.glide.load.engine.cache.DiskCache
+    /** 250 MB of cache. */
+    int DEFAULT_DISK_CACHE_SIZE = 250 * 1024 * 1024;
+    String DEFAULT_DISK_CACHE_DIR = "image_manager_disk_cache";</div></pre>
+                            </td>
+                        </tr>
+                    </table>
+                </figure>
+            </ul>
+        </li>
 
-    <script>
-        function GetRequests(){
-            var url=location.search;
-            if(url.indexOf("?")!=-1){
-                var str=url.substr(1);
-                strs=str.split("=");
-                alert(strs[1]);
-            }
-        }
-    </script>
-
+    </div>
 
 </div>
 </body>
@@ -327,7 +358,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/02/06/JavaScript简介/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/03/20/Glide使用_01/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -341,18 +372,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/02/13/回顾2016/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/03/20/Glide使用_03/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          回顾2016
+          Glide使用_3(Glide中bitmap处理之LruArrayPool)
         
       </div>
     </a>
   
   
-    <a href="/2017/02/06/VideoPlayer/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">视频</div>
+    <a href="/2018/03/20/Glide使用_02/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Glide使用_2(Glide中bitmap处理)</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -366,7 +397,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="JavaScript简介" data-title="JavaScript简介" data-url="http://yoursite.com/2017/02/06/JavaScript简介/"></div>
+	<div class="ds-thread" data-thread-key="Glide使用_01" data-title="Glide使用_1(Glide简单引入及使用)" data-url="http://yoursite.com/2018/03/20/Glide使用_01/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

@@ -146,6 +146,117 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-link/Link_01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/29/link/Link_01/">如何求单向链表是否有环，如果有的话求环的长度以及这个单向链表的长度</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/29/link/Link_01/" class="archive-article-date">
+  	<time datetime="2019-11-29T08:13:47.650Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-下图为这个表的结构以及问题"><a href="#1-下图为这个表的结构以及问题" class="headerlink" title="1.下图为这个表的结构以及问题"></a>1.下图为这个表的结构以及问题</h2><p><img src="/images/link/link_01-001.png" alt=""></p>
+        
+          <a class="article-more-a" href="/2019/11/29/link/Link_01/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/29/link/Link_01/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="default-Glide使用_03" class="article article-type-default  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/20/Glide使用_03/">Glide使用_3(Glide中bitmap处理之LruArrayPool)</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/20/Glide使用_03/" class="archive-article-date">
+  	<time datetime="2018-03-20T07:59:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2></h2>
+<html>
+<body>
+<div>
+    <h4>1.详细看下LruArrayPool这个类</h4>
+    LruArrayPool的作用是用来维持图片引用的序列池
+</div>
+</body>
+</html>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/20/Glide使用_03/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="default-Glide使用_01" class="article article-type-default  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -153,13 +264,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/24/Glide使用_01/">Glide使用</a>
+      <a class="article-title" href="/2018/03/20/Glide使用_01/">Glide使用_1(Glide简单引入及使用)</a>
     </h1>
   
 
         
-        <a href="/2018/01/24/Glide使用_01/" class="archive-article-date">
-  	<time datetime="2018-01-24T09:26:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-24</time>
+        <a href="/2018/03/20/Glide使用_01/" class="archive-article-date">
+  	<time datetime="2018-03-20T07:52:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-20</time>
 </a>
         
       </header>
@@ -172,7 +283,7 @@
 <div>
     <h4>1.引入glide依赖（4.5版本）</h4>
     官方文档说的挺简单的
-    <a href="https://github.com/bumptech/glide" target="_blank" rel="external">点击查看官方文档</a>
+    <a href="https://github.com/bumptech/glide">点击查看官方文档</a>
     ，4.3之前直接引入就可以了，
     但是到了4.5有些问题，主要是它本身会去依赖com.android.support包，经过查看源码，他是这么写的：
     <ul style="padding-left:20px;">
@@ -203,92 +314,10 @@ compileOnly "com.android.support:appcompat-v7:${ANDROID_SUPPORT_VERSION}"</div><
             </table>
         </figure>
     </ul>
-    这样问题就得以解决了，依赖成功引入，下面开始使用
-    <h4>2.Glide的简单使用</h4>
-    用glide为的就是解决图片加载问题，glide 4.x较3.x改动挺大的，感觉使用方法上越来越趋近于fresco，如果是仅仅加载图片的话
-    以下就可以满足：
-    <ul style="padding-left:20px;">
-        <figure class="highlight bash">
-            <table>
-                <tr>
-                    <td class="code">
-                        <pre><div class="line">Glide.with(Context)
-    .load(imgUrl)
-    .into(imageView)</div></pre>
-                    </td>
-                </tr>
-            </table>
-        </figure>
-    </ul>
-
-    <h4>3.Glide自定义配置使用</h4>
-    我用的是kotlin和java混合使用的，出现了bug，查阅了一下官网github还有bug，
-    <a href="https://github.com/bumptech/glide/issues/1939" target="_blank" rel="external">官方说明七天以后应该会解决</a><br>
-    看一下官方自定义的配置吧，一般咱们最在乎的是图片的默认存储位置（感觉也不是很在乎，说在乎是因为增删改查，但是如果api提供了
-    很好的增删改查的方法其实也就不是很在乎了），再有就是内存默认大小（自我感觉框架做的配置已经很好了），缓存的大小，日志输出level
-    <div style="padding-left:20px;">
-        <li><font style="font-weight:bold;font-style:italic;">1.图片存储位置</font>Glide.java类源码可以知道
-            <ul style="padding-left:20px;">
-                <figure class="highlight bash">
-                    <table>
-                        <tr>
-                            <td class="code">
-                        <pre><div class="line">//package com.bumptech.glide;
-private static final String DEFAULT_DISK_CACHE_DIR = "image_manager_disk_cache";</div></pre>
-                            </td>
-                        </tr>
-                    </table>
-                </figure>
-            </ul>
-            具体位置需要root手机才能看到，而且图片的存储的命名不是常用的（这里以jpg为例，图片的后缀为.0），具体位置：<br>
-            <ul style="padding-left:20px;">
-                <figure class="highlight bash">
-                    <table>
-                        <tr>
-                            <td class="code">
-                                <pre><div class="line">/data/data/com.fanyafeng.mlmoduletest/cache/image_manager_disk_cache</div></pre>
-                            </td>
-                        </tr>
-                    </table>
-                </figure>
-            </ul>
-        </li>
-        <li><font style="font-weight:bold;font-style:italic;">2.内存默认大小：</font>api中的内存是根据不同屏幕分辨率设置的
-            <ul style="padding-left:20px;">
-                <figure class="highlight bash">
-                    <table>
-                        <tr>
-                            <td class="code">
-                                <pre><div class="line">//package com.bumptech.glide.load.engine.cache.MemorySizeCalculator
-    if (targetMemoryCacheSize + targetBitmapPoolSize <= availablesize)="" {="" memorycachesize="targetMemoryCacheSize;" bitmappoolsize="targetBitmapPoolSize;" }="" else="" float="" part="availableSize" (builder.bitmappoolscreens="" +="" builder.memorycachescreens);="" *="" builder.bitmappoolscreens);="" }<="" div=""></=></div></pre>
-                            </td>
-                        </tr>
-                    </table>
-                </figure>
-            </ul>
-        </li>
-        <li><font style="font-weight:bold;font-style:italic;">3.缓存默认大小</font>
-            <ul style="padding-left:20px;">
-                <figure class="highlight bash">
-                    <table>
-                        <tr>
-                            <td class="code">
-                        <pre><div class="line">//package com.bumptech.glide.load.engine.cache.DiskCache
-    /** 250 MB of cache. */
-    int DEFAULT_DISK_CACHE_SIZE = 250 * 1024 * 1024;
-    String DEFAULT_DISK_CACHE_DIR = "image_manager_disk_cache";</div></pre>
-                            </td>
-                        </tr>
-                    </table>
-                </figure>
-            </ul>
-        </li>
-
-    </div>
-
-</div>
-</body>
-</html>
+    这样问题就得以解决了，依赖成功引入，下面开始使用<br>
+        
+          <a class="article-more-a" href="/2018/03/20/Glide使用_01/#more">more >></a>
+        
       
 
       
@@ -300,7 +329,65 @@ private static final String DEFAULT_DISK_CACHE_DIR = "image_manager_disk_cache";
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/24/Glide使用_01/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/20/Glide使用_01/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="default-Glide使用_02" class="article article-type-default  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/20/Glide使用_02/">Glide使用_2(Glide中bitmap处理)</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/20/Glide使用_02/" class="archive-article-date">
+  	<time datetime="2018-03-20T07:52:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2></h2>
+<html>
+<body>
+<div>
+    <h4>1.这里着重讲下bitmap的回收（估计需要很长时间）</h4>
+    看下glide定义的关于bitmap回收的一些类<br><img width="50%" height="50%" src="/images/2018-02-06-glide1.png"><br>
+        
+          <a class="article-more-a" href="/2018/03/20/Glide使用_02/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/20/Glide使用_02/">展开全文 >></a>
         </p>
       
 
@@ -727,348 +814,9 @@ private static final String DEFAULT_DISK_CACHE_DIR = "image_manager_disk_cache";
 
 
   
-    <article id="default-用环信来做一个聊天APP(二)" class="article article-type-default  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/23/用环信来做一个聊天APP(二)/">基于环信的Android聊天APP（二）</a>
-    </h1>
-  
-
-        
-        <a href="/2017/02/23/用环信来做一个聊天APP(二)/" class="archive-article-date">
-  	<time datetime="2017-02-23T08:00:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2></h2>
-<html>
-<body>
-<div>
-    <h4>1.开始着手一个一对一的信息发送</h4>
-    <font size="4"><a href="http://docs.easemob.com/im/200androidclientintegration/50singlechat">官方文档</a></font><br>
-    <font size="3">这里我先看的收消息，因为可以在后台建一个用户并且直接有发送消息的按钮，这样测试比较简单一点，上文中
-        已经把配置，sdk都搞定了，下面来正式写demo，首先就是app的初始化，就直接放在application中了。</font>
-    <ul>
-        <figure class="highlight bash">
-            <table>
-                <tr>
-                    <td class="code">
-                        <pre><div class="line">    // 记录是否已经初始化
-    private boolean isInit = false;
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        initFresco();
-        initEasemob();
-    }
-
-    private void initFresco() {
-        Fresco.initialize(this, FrescoConfig.getsImagePipelineConfig(this));
-    }
-
-    private void initEasemob() {
-        // 获取当前进程 id 并取得进程名
-        int pid = android.os.Process.myPid();
-        String processAppName = getAppName(pid);
-        /**
-         * 如果app启用了远程的service，此application:onCreate会被调用2次
-         * 为了防止环信SDK被初始化2次，加此判断会保证SDK被初始化1次
-         * 默认的app会在以包名为默认的process name下运行，如果查到的process name不是app的process name就立即返回
-         */
-        if (processAppName == null || !processAppName.equalsIgnoreCase(this.getPackageName())) {
-            // 则此application的onCreate 是被service 调用的，直接返回
-            return;
-        }
-        if (isInit) {
-            return;
-        }
-        /**
-         * SDK初始化的一些配置
-         * 关于 EMOptions 可以参考官方的 API 文档
-         * http://www.easemob.com/apidoc/android/chat3.0/classcom_1_1hyphenate_1_1chat_1_1_e_m_options.html
-         */
-        EMOptions options = new EMOptions();
-        // 设置Appkey，如果配置文件已经配置，这里可以不用设置
-        // options.setAppKey("lzan13#hxsdkdemo");
-        // 设置自动登录
-        options.setAutoLogin(true);
-        // 设置是否需要发送已读回执
-        options.setRequireAck(true);
-        // 设置是否需要发送回执，TODO 这个暂时有bug，上层收不到发送回执
-        options.setRequireDeliveryAck(true);
-        // 设置是否需要服务器收到消息确认
-        options.setRequireDeliveryAck(true);
-        // 收到好友申请是否自动同意，如果是自动同意就不会收到好友请求的回调，因为sdk会自动处理，默认为true
-        options.setAcceptInvitationAlways(false);
-        // 设置是否自动接收加群邀请，如果设置了当收到群邀请会自动同意加入
-        options.setAutoAcceptGroupInvitation(false);
-        // 设置（主动或被动）退出群组时，是否删除群聊聊天记录
-        options.setDeleteMessagesAsExitGroup(false);
-        // 设置是否允许聊天室的Owner 离开并删除聊天室的会话
-        options.allowChatroomOwnerLeave(true);
-
-        // 调用初始化方法初始化sdk
-        EMClient.getInstance().init(this, options);
-
-        // 设置开启debug模式
-        EMClient.getInstance().setDebugMode(true);
-
-        // 设置初始化已经完成
-        isInit = true;
-    }
-
-    /**
-     * 根据Pid获取当前进程的名字，一般就是当前app的包名
-     *
-     * @param pid 进程的id
-     * @return 返回进程的名字
-     */
-    private String getAppName(int pid) {
-        String processName = null;
-        ActivityManager activityManager = (ActivityManager) this.getSystemService(Context.ACTIVITY_SERVICE);
-        List list = activityManager.getRunningAppProcesses();
-        Iterator i = list.iterator();
-        while (i.hasNext()) {
-            ActivityManager.RunningAppProcessInfo info = (ActivityManager.RunningAppProcessInfo) (i.next());
-            try {
-                if (info.pid == pid) {
-                    // 根据进程的信息获取当前进程的名字
-                    processName = info.processName;
-                    // 返回当前进程名
-                    return processName;
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        // 没有匹配的项，返回为null
-        return null;
-    }</div></pre>
-                    </td>
-                </tr>
-            </table>
-        </figure>
-    </ul>
-        
-          <a class="article-more-a" href="/2017/02/23/用环信来做一个聊天APP(二)/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/23/用环信来做一个聊天APP(二)/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="default-用环信来做一个聊天APP(一)" class="article article-type-default  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/23/用环信来做一个聊天APP(一)/">基于环信的Android聊天APP（一）</a>
-    </h1>
-  
-
-        
-        <a href="/2017/02/23/用环信来做一个聊天APP(一)/" class="archive-article-date">
-  	<time datetime="2017-02-23T07:16:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2></h2>
-<html><body>
-<div>
-    <h4>1.有个需求需要聊天，然后想做个demo</h4>
-    &nbsp;&nbsp;&nbsp;&nbsp;<font size="3">本来打算用网易云的，然后查了一下资料（我没有做实际操作，根据查阅
-    的资料做的决定，可能有点武断），最后选择了环信(以下是我查阅的几个资料)。</font><br>
-    <div style="padding-left:20px;">
-        <li><a href="https://www.zhihu.com/question/26779860">最近要用到IM，比较了下LeanCloud、融云、环信，请问LeanCloud有什么优势？</a></li>
-        <li><a href="https://www.zhihu.com/question/27027138">哪款即时通讯 (IM) 服务最稳定？</a></li>
-        <li><a href="http://kexun.github.io/2016/03/17/%E7%AC%AC%E4%B8%89%E6%96%B9im%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%A0%94/">第三方im系统调研</a></li>
-    </div>
-
-    <h4>2.一般接入第三方第一件事就是注册，然后看文档</h4>
-    &nbsp;&nbsp;&nbsp;&nbsp;<font size="3">环信的注册不是很麻烦，最主要的就是手机号，不用身份证实名制，注册完成以后就可以添加自己的应用了，然后去申请key，他们的key
-    不是根据签名申请的，可以支持debug，很方便调试。有点坑的地方就是如果你选择基于3.x的版本进行开发去查看相应的文档的话，你会发现好奇怪，为啥有的方法不对，有的还有bug，
-    这个的话大体的逻辑是对的，估计是因为版本升级文档没有及时更新吧，bug就是后台是用admin发送一条数据的时候客户端会收到两条，但是用户和用户之间通讯是没问题的，这个问题困扰了我
-    半个下午和一个上午，我实在看不出我代码是那错了，去找客服，他说是他们后台的bug。再有就是有些需要加判断处理的他的官方代码并没有做，还需要自己多多测试，总是来说坑还是有的，
-    需要自己多多实践。</font><br>
-
-    <a href="http://docs.easemob.com/im/000quickstart/10register">&nbsp;&nbsp;&nbsp;&nbsp;详情请点击此处</a>
-        
-          <a class="article-more-a" href="/2017/02/23/用环信来做一个聊天APP(一)/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/23/用环信来做一个聊天APP(一)/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="default-我的测试" class="article article-type-default  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/17/我的测试/">测试</a>
-    </h1>
-  
-
-        
-        <a href="/2017/02/17/我的测试/" class="archive-article-date">
-  	<time datetime="2017-02-17T07:09:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2></h2>
-<html>
-<head>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script>
-        $(document).ready(function(){
-          $("#btn1").click(function(){
-            $("#p").append(" <b>Appended text</b>.");
-          });
-
-          $("#btn2").click(function(){
-            $("ol").append("<li>Appended item</li>");
-          });
-        });
-
-    </script>
-</head>
-<body onload="MyAutoRun()">
-<div>
-
-    <button type="button" onclick="MyAutoRun()">点击执行js</button><br>
-
-    <font id="a"></font><br>
-    <font id="b"></font><br>
-
-    <img id="c" src="">
-
-    <script language="JavaScript">
-     var i=0;
-　　  function MyAutoRun()
-　　  {
-        x=document.getElementById("a");
-
-        var info="大家好"
-        var infoLength=info.length;
-
-        $("#a").append(info.charAt(i));
-
-        if(i<infoLength-1){
-            setTimeout("MyAutoRun()",300);
-        }
-        if(i==infoLength-1){
-            $(document).ready(MyRun());
-        }
-        i++;
-　　  }
-
-      function MyRun(){
-      $("#b").append("只是测试而已");
-           element=document.getElementById('c');
-      }
-
-    </script>
-</div>
-</body>
-</html>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/17/我的测试/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1080,7 +828,7 @@ private static final String DEFAULT_DISK_CACHE_DIR = "image_manager_disk_cache";
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 樊亚风
+    		&copy; 2019 樊亚风
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
