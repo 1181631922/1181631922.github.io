@@ -6,20 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>如何求单向链表是否有环，如果有的话求环的长度以及这个单向链表的长度 | 博客</title>
+  <title>如何求单链表的某个元素 | 博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.下图为这个表的结构以及问题">
+  <meta name="description" content="1.已知链表，需要求链表某个位置的元素其实这个问题解决思路很简单，遍历完查找就好了编码比较简单就不做注释了
+123456789fun &amp;lt;T&amp;gt; printNode(node: Link1.Node&amp;lt;T&amp;gt;) &amp;#123;        var temp = node        println(temp.data)        while (temp.next != nul">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何求单向链表是否有环，如果有的话求环的长度以及这个单向链表的长度">
-<meta property="og:url" content="http://yoursite.com/2019/11/29/link/Link_01/index.html">
+<meta property="og:title" content="如何求单链表的某个元素">
+<meta property="og:url" content="http://yoursite.com/2019/12/23/link/Link_02/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="1.下图为这个表的结构以及问题">
-<meta property="og:image" content="http://yoursite.com/images/link/link_01-001.png">
-<meta property="og:updated_time" content="2019-11-29T08:57:35.023Z">
+<meta property="og:description" content="1.已知链表，需要求链表某个位置的元素其实这个问题解决思路很简单，遍历完查找就好了编码比较简单就不做注释了
+123456789fun &amp;lt;T&amp;gt; printNode(node: Link1.Node&amp;lt;T&amp;gt;) &amp;#123;        var temp = node        println(temp.data)        while (temp.next != nul">
+<meta property="og:updated_time" content="2019-12-23T05:57:04.567Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何求单向链表是否有环，如果有的话求环的长度以及这个单向链表的长度">
-<meta name="twitter:description" content="1.下图为这个表的结构以及问题">
-<meta name="twitter:image" content="http://yoursite.com/images/link/link_01-001.png">
+<meta name="twitter:title" content="如何求单链表的某个元素">
+<meta name="twitter:description" content="1.已知链表，需要求链表某个位置的元素其实这个问题解决思路很简单，遍历完查找就好了编码比较简单就不做注释了
+123456789fun &amp;lt;T&amp;gt; printNode(node: Link1.Node&amp;lt;T&amp;gt;) &amp;#123;        var temp = node        println(temp.data)        while (temp.next != nul">
   
     <link rel="alternative" href="/atom.xml" title="博客" type="application/atom+xml">
   
@@ -147,33 +148,38 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-link/Link_01" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-link/Link_02" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      如何求单向链表是否有环，如果有的话求环的长度以及这个单向链表的长度
+      如何求单链表的某个元素
     </h1>
   
 
         
-        <a href="/2019/11/29/link/Link_01/" class="archive-article-date">
-  	<time datetime="2019-11-29T08:57:35.022Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-29</time>
+        <a href="/2019/12/23/link/Link_02/" class="archive-article-date">
+  	<time datetime="2019-12-23T05:57:04.567Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-下图为这个表的结构以及问题"><a href="#1-下图为这个表的结构以及问题" class="headerlink" title="1.下图为这个表的结构以及问题"></a>1.下图为这个表的结构以及问题</h2><p><img src="/images/link/link_01-001.png" alt=""></p>
+        <h2 id="1-已知链表，需要求链表某个位置的元素"><a href="#1-已知链表，需要求链表某个位置的元素" class="headerlink" title="1.已知链表，需要求链表某个位置的元素"></a>1.已知链表，需要求链表某个位置的元素</h2><p>其实这个问题解决思路很简单，遍历完查找就好了<br>编码比较简单就不做注释了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">fun &lt;T&gt; printNode(node: Link1.Node&lt;T&gt;) &#123;</div><div class="line">        var temp = node</div><div class="line">        println(temp.data)</div><div class="line">        while (temp.next != null) &#123;</div><div class="line">            temp = temp.next!!</div><div class="line">            println(temp.data)</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="2-首先要确定这个链表有没有环"><a href="#2-首先要确定这个链表有没有环" class="headerlink" title="2.首先要确定这个链表有没有环"></a>2.首先要确定这个链表有没有环</h2><p>思路的话不难，都知道如果有环的话那么遍历这个链表则是没有结尾的，而且最后面的肯定是重复的，最直接想到的就是穷举法，对于上图个数不多的还好，如果表是特别长的话就蛋疼了，那再换个切入点，上学时都跑过三千米吧，第一能把倒数第一落下几圈，是不是有思路了，就是可以定义快慢两个指针，如果有环的话则快慢指针总会能相遇，否则的话这两个指针永远相遇不了。思路有了下一步就是编码了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">//构造数据结构，链表不知道是什么类型的，这里用了一个泛型</div><div class="line">//单向链表</div><div class="line">    class Node&lt;T&gt;(</div><div class="line">            //当前data值</div><div class="line">            var data: T? = null,</div><div class="line">            //指向下一个的指针</div><div class="line">            var next: Node&lt;T&gt;? = null) &#123;</div><div class="line"></div><div class="line">        override fun toString(): String &#123;</div><div class="line">            return &quot;Node(data=$data, next=$next)&quot;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">//再来就是判断一个链表是否有环</div><div class="line">fun &lt;T&gt; hasCycle(node: Node&lt;T&gt;): Boolean &#123;</div><div class="line">        //先定义两个指针，一个慢指针，一个快指针，让慢指针去碰撞快指针</div><div class="line">        //慢指针</div><div class="line">        var firstNode = node</div><div class="line">        //快指针</div><div class="line">        var secondNode = node</div><div class="line">        //死循环</div><div class="line">        while (true) &#123;</div><div class="line">            if (firstNode.next == null) &#123;</div><div class="line">                return false</div><div class="line">            &#125;</div><div class="line">            if (secondNode.next == null) &#123;</div><div class="line">                return false</div><div class="line">            &#125;</div><div class="line">            if (secondNode.next!!.next == null) &#123;</div><div class="line">                return false</div><div class="line">            &#125;</div><div class="line">            firstNode = firstNode.next!!</div><div class="line">            secondNode = secondNode.next!!.next!!</div><div class="line">            if (firstNode == secondNode) &#123;</div><div class="line">                //快慢指针相遇则证明有环</div><div class="line">                return true</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<h2 id="3-求这个链表的长度"><a href="#3-求这个链表的长度" class="headerlink" title="3.求这个链表的长度"></a>3.求这个链表的长度</h2><p>这个思路也很简单，求出那个结环的<code>Node</code>就可以了，第一反应应该就是上一步的相遇点不就是么，但是再仔细想想是不是感觉不是，有可能是环里面的任何一个元素，那么ok换个思路，还是类比以上的思路，先求出这个环的长度，然后还是两个指针步长相同，先让其中一个指针先走环的长度，然后再让两个一起按照一个步长走，那么碰撞时的相遇点就是要求的<code>Node</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">//第一步先求环的长度，思路比较简单</div><div class="line">//首先还是要快慢指针相遇，此时快指针固定，慢指针继续走，再次相遇就是环的长度</div><div class="line">fun &lt;T&gt; findCycleLength(node: Node&lt;T&gt;): Int &#123;</div><div class="line">        var circleLength = 0</div><div class="line">        var firstNode = node</div><div class="line">        var secondNode = node</div><div class="line">        var hasCircle = false</div><div class="line">        while (true) &#123;</div><div class="line">            if (firstNode.next == null) &#123;</div><div class="line">                return circleLength</div><div class="line">            &#125;</div><div class="line">            if (secondNode.next == null) &#123;</div><div class="line">                return circleLength</div><div class="line">            &#125;</div><div class="line">            if (secondNode.next!!.next == null) &#123;</div><div class="line">                return circleLength</div><div class="line">            &#125;</div><div class="line">            if (!hasCircle) &#123;</div><div class="line">                firstNode = firstNode.next!!</div><div class="line">                secondNode = secondNode.next!!.next!!</div><div class="line">            &#125; else &#123;</div><div class="line">                secondNode = secondNode.next!!</div><div class="line">            &#125;</div><div class="line">            if (firstNode == secondNode) &#123;</div><div class="line">                hasCircle = true</div><div class="line">                if (hasCircle &amp;&amp; circleLength != 0) &#123;</div><div class="line">                    return circleLength + 1</div><div class="line">                &#125;</div><div class="line">            &#125; else &#123;</div><div class="line">                if (hasCircle) &#123;</div><div class="line">                    circleLength++</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    </div><div class="line">//上面方法求出环的长度，再来求重复的Node</div><div class="line">fun &lt;T&gt; findRepetPoint(node: Node&lt;T&gt;, circleLength: Int): Node&lt;T&gt; &#123;</div><div class="line">        var front = node</div><div class="line">        var back = node</div><div class="line">        //前面的先走circleLength</div><div class="line">        (0 until circleLength).forEachIndexed &#123; index, i -&gt;</div><div class="line">            front = front.next!!</div><div class="line">        &#125;</div><div class="line">        println(front.data)</div><div class="line"></div><div class="line">        while (true) &#123;</div><div class="line">            front = front.next!!</div><div class="line">            back = back.next!!</div><div class="line">            if (front == back) &#123;</div><div class="line">                return front</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    </div><div class="line">//这样这个链表的长度就求出来了</div></pre></td></tr></table></figure>
-<h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4.总结"></a>4.总结</h2><p>查找链表是否有环使用快慢指针比较巧妙，感觉指针游离作比较，<a href="https://github.com/1181631922/JavaBasics/blob/master/src/link/Link1.kt" target="_blank" rel="external">源码地址</a></p>
+<h2 id="2-再出个这个题的变形"><a href="#2-再出个这个题的变形" class="headerlink" title="2.再出个这个题的变形"></a>2.再出个这个题的变形</h2><p>如果是求这个链表倒数第<code>k</code>个元素，并且不允许遍历表该怎么做，这个就比较有意思了，其实可以做个类比，就比如说对数据操作做到时间和空间的最优解，那就是可以再去开辟一块内存，也就是用两个指针去解决，这两个指针的距离为<code>k</code>，那么快指针走到最后一个<code>Node</code>时，慢指针即为所求</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//假设求倒数第2个元素</div><div class="line">    fun &lt;T&gt; findSomeNode(node: Link1.Node&lt;T&gt;, count: Int): Link1.Node&lt;T&gt; &#123;</div><div class="line">        var slowNode = node</div><div class="line">        var fastNode = node</div><div class="line">        (0 until count).forEachIndexed &#123; index, i -&gt;</div><div class="line">            fastNode = fastNode.next!!</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        while (true) &#123;</div><div class="line">            slowNode = slowNode.next!!</div><div class="line">            if (fastNode.next == null) &#123;</div><div class="line">                return slowNode</div><div class="line">            &#125; else &#123;</div><div class="line">                fastNode = fastNode.next!!</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h2 id="3-再来个变形"><a href="#3-再来个变形" class="headerlink" title="3.再来个变形"></a>3.再来个变形</h2><p>在不遍历整个表的情况下求出表的中间的<code>Node</code>，其实首先想到的还是遍历链表然后求某个位置的<code>Node</code>，但是如果还是加个前提，不让遍历链表，直接拿中间的<code>Node</code>呢，这次是不是想到了还是拿两个快慢指针去做，只要慢指针为1，快指针为2这样慢指针就是中间的<code>Node</code>，知道思路编码就容易了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">//如果是偶数的话可能是两个</div><div class="line">    fun &lt;T&gt; findMiddleNode(node: Link1.Node&lt;T&gt;): List&lt;Link1.Node&lt;T&gt;&gt; &#123;</div><div class="line">        var tempList = mutableListOf&lt;Link1.Node&lt;T&gt;&gt;()</div><div class="line">        var slowNode = node</div><div class="line">        var fastNode = node</div><div class="line"></div><div class="line">        while (true) &#123;</div><div class="line">            if (fastNode.next == null) &#123;</div><div class="line">                //奇数，返回中间一个</div><div class="line">                tempList.add(slowNode)</div><div class="line">                return tempList</div><div class="line">            &#125;</div><div class="line">            if (fastNode.next!!.next == null) &#123;</div><div class="line">                tempList.add(slowNode)</div><div class="line">                tempList.add(slowNode.next!!)</div><div class="line">                return tempList</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            slowNode = slowNode.next!!</div><div class="line">            fastNode = fastNode.next!!.next!!</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4.总结"></a>4.总结</h2><p>经过和上文的对比应该能总结出这类问题的解决方法了，其实往深层理解就是时间和空间的转变就拿这个问题来说</p>
+<ol>
+<li>第一种解决方法是先遍历再去定位，那么首先要遍历完所有的，此时拿到长度再去定位到固定元素，拿极端举例子比方说倒数第一个，就需要遍历两遍数组</li>
+<li>第二种方法就是拿两个指针但是遍历一次就相当于用空间换了时间<br>以上是个人理解，<a href="https://github.com/1181631922/JavaBasics/blob/master/src/link/Link2.kt" target="_blank" rel="external">源码地址</a></li>
+</ol>
 
       
 
@@ -232,7 +238,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2019/11/29/link/Link_01/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2019/12/23/link/Link_02/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -246,18 +252,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/12/02/link/Link_03/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/12/27/gradle/gradle_01/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          合并两个有序链表
+          (no title)
         
       </div>
     </a>
   
   
-    <a href="/2018/03/20/Glide使用_03/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Glide使用_3(Glide中bitmap处理之LruArrayPool)</div>
+    <a href="/2019/12/02/designmode/mvc/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mvc设计模式</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -271,7 +277,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="link/Link_01" data-title="如何求单向链表是否有环，如果有的话求环的长度以及这个单向链表的长度" data-url="http://yoursite.com/2019/11/29/link/Link_01/"></div>
+	<div class="ds-thread" data-thread-key="link/Link_02" data-title="如何求单链表的某个元素" data-url="http://yoursite.com/2019/12/23/link/Link_02/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

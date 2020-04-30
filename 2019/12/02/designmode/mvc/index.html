@@ -6,20 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>如何求单向链表是否有环，如果有的话求环的长度以及这个单向链表的长度 | 博客</title>
+  <title>mvc设计模式 | 博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.下图为这个表的结构以及问题">
+  <meta name="description" content="1.MVC模式是什么  MVC即Model、View、Controller即模型、视图、控制器。  MVC要实现的目标是将软件用户界面和业务逻辑分离以使代码可扩展性、可复用性、可维护性、灵活性加强。  View层是界面，Model层是业务逻辑，Controller层用来调度View层和Model层，将用户界面和业务逻辑合理的组织在一起，起粘合剂的效果。所以Controller中的内容能少则少，这样">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何求单向链表是否有环，如果有的话求环的长度以及这个单向链表的长度">
-<meta property="og:url" content="http://yoursite.com/2019/11/29/link/Link_01/index.html">
+<meta property="og:title" content="mvc设计模式">
+<meta property="og:url" content="http://yoursite.com/2019/12/02/designmode/mvc/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="1.下图为这个表的结构以及问题">
-<meta property="og:image" content="http://yoursite.com/images/link/link_01-001.png">
-<meta property="og:updated_time" content="2019-11-29T08:57:35.023Z">
+<meta property="og:description" content="1.MVC模式是什么  MVC即Model、View、Controller即模型、视图、控制器。  MVC要实现的目标是将软件用户界面和业务逻辑分离以使代码可扩展性、可复用性、可维护性、灵活性加强。  View层是界面，Model层是业务逻辑，Controller层用来调度View层和Model层，将用户界面和业务逻辑合理的组织在一起，起粘合剂的效果。所以Controller中的内容能少则少，这样">
+<meta property="og:updated_time" content="2019-12-02T09:12:30.150Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何求单向链表是否有环，如果有的话求环的长度以及这个单向链表的长度">
-<meta name="twitter:description" content="1.下图为这个表的结构以及问题">
-<meta name="twitter:image" content="http://yoursite.com/images/link/link_01-001.png">
+<meta name="twitter:title" content="mvc设计模式">
+<meta name="twitter:description" content="1.MVC模式是什么  MVC即Model、View、Controller即模型、视图、控制器。  MVC要实现的目标是将软件用户界面和业务逻辑分离以使代码可扩展性、可复用性、可维护性、灵活性加强。  View层是界面，Model层是业务逻辑，Controller层用来调度View层和Model层，将用户界面和业务逻辑合理的组织在一起，起粘合剂的效果。所以Controller中的内容能少则少，这样">
   
     <link rel="alternative" href="/atom.xml" title="博客" type="application/atom+xml">
   
@@ -147,33 +145,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-link/Link_01" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-designmode/mvc" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      如何求单向链表是否有环，如果有的话求环的长度以及这个单向链表的长度
+      mvc设计模式
     </h1>
   
 
         
-        <a href="/2019/11/29/link/Link_01/" class="archive-article-date">
-  	<time datetime="2019-11-29T08:57:35.022Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-29</time>
+        <a href="/2019/12/02/designmode/mvc/" class="archive-article-date">
+  	<time datetime="2019-12-02T08:51:03.980Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-下图为这个表的结构以及问题"><a href="#1-下图为这个表的结构以及问题" class="headerlink" title="1.下图为这个表的结构以及问题"></a>1.下图为这个表的结构以及问题</h2><p><img src="/images/link/link_01-001.png" alt=""></p>
-<a id="more"></a>
-<h2 id="2-首先要确定这个链表有没有环"><a href="#2-首先要确定这个链表有没有环" class="headerlink" title="2.首先要确定这个链表有没有环"></a>2.首先要确定这个链表有没有环</h2><p>思路的话不难，都知道如果有环的话那么遍历这个链表则是没有结尾的，而且最后面的肯定是重复的，最直接想到的就是穷举法，对于上图个数不多的还好，如果表是特别长的话就蛋疼了，那再换个切入点，上学时都跑过三千米吧，第一能把倒数第一落下几圈，是不是有思路了，就是可以定义快慢两个指针，如果有环的话则快慢指针总会能相遇，否则的话这两个指针永远相遇不了。思路有了下一步就是编码了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">//构造数据结构，链表不知道是什么类型的，这里用了一个泛型</div><div class="line">//单向链表</div><div class="line">    class Node&lt;T&gt;(</div><div class="line">            //当前data值</div><div class="line">            var data: T? = null,</div><div class="line">            //指向下一个的指针</div><div class="line">            var next: Node&lt;T&gt;? = null) &#123;</div><div class="line"></div><div class="line">        override fun toString(): String &#123;</div><div class="line">            return &quot;Node(data=$data, next=$next)&quot;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">//再来就是判断一个链表是否有环</div><div class="line">fun &lt;T&gt; hasCycle(node: Node&lt;T&gt;): Boolean &#123;</div><div class="line">        //先定义两个指针，一个慢指针，一个快指针，让慢指针去碰撞快指针</div><div class="line">        //慢指针</div><div class="line">        var firstNode = node</div><div class="line">        //快指针</div><div class="line">        var secondNode = node</div><div class="line">        //死循环</div><div class="line">        while (true) &#123;</div><div class="line">            if (firstNode.next == null) &#123;</div><div class="line">                return false</div><div class="line">            &#125;</div><div class="line">            if (secondNode.next == null) &#123;</div><div class="line">                return false</div><div class="line">            &#125;</div><div class="line">            if (secondNode.next!!.next == null) &#123;</div><div class="line">                return false</div><div class="line">            &#125;</div><div class="line">            firstNode = firstNode.next!!</div><div class="line">            secondNode = secondNode.next!!.next!!</div><div class="line">            if (firstNode == secondNode) &#123;</div><div class="line">                //快慢指针相遇则证明有环</div><div class="line">                return true</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<h2 id="3-求这个链表的长度"><a href="#3-求这个链表的长度" class="headerlink" title="3.求这个链表的长度"></a>3.求这个链表的长度</h2><p>这个思路也很简单，求出那个结环的<code>Node</code>就可以了，第一反应应该就是上一步的相遇点不就是么，但是再仔细想想是不是感觉不是，有可能是环里面的任何一个元素，那么ok换个思路，还是类比以上的思路，先求出这个环的长度，然后还是两个指针步长相同，先让其中一个指针先走环的长度，然后再让两个一起按照一个步长走，那么碰撞时的相遇点就是要求的<code>Node</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">//第一步先求环的长度，思路比较简单</div><div class="line">//首先还是要快慢指针相遇，此时快指针固定，慢指针继续走，再次相遇就是环的长度</div><div class="line">fun &lt;T&gt; findCycleLength(node: Node&lt;T&gt;): Int &#123;</div><div class="line">        var circleLength = 0</div><div class="line">        var firstNode = node</div><div class="line">        var secondNode = node</div><div class="line">        var hasCircle = false</div><div class="line">        while (true) &#123;</div><div class="line">            if (firstNode.next == null) &#123;</div><div class="line">                return circleLength</div><div class="line">            &#125;</div><div class="line">            if (secondNode.next == null) &#123;</div><div class="line">                return circleLength</div><div class="line">            &#125;</div><div class="line">            if (secondNode.next!!.next == null) &#123;</div><div class="line">                return circleLength</div><div class="line">            &#125;</div><div class="line">            if (!hasCircle) &#123;</div><div class="line">                firstNode = firstNode.next!!</div><div class="line">                secondNode = secondNode.next!!.next!!</div><div class="line">            &#125; else &#123;</div><div class="line">                secondNode = secondNode.next!!</div><div class="line">            &#125;</div><div class="line">            if (firstNode == secondNode) &#123;</div><div class="line">                hasCircle = true</div><div class="line">                if (hasCircle &amp;&amp; circleLength != 0) &#123;</div><div class="line">                    return circleLength + 1</div><div class="line">                &#125;</div><div class="line">            &#125; else &#123;</div><div class="line">                if (hasCircle) &#123;</div><div class="line">                    circleLength++</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    </div><div class="line">//上面方法求出环的长度，再来求重复的Node</div><div class="line">fun &lt;T&gt; findRepetPoint(node: Node&lt;T&gt;, circleLength: Int): Node&lt;T&gt; &#123;</div><div class="line">        var front = node</div><div class="line">        var back = node</div><div class="line">        //前面的先走circleLength</div><div class="line">        (0 until circleLength).forEachIndexed &#123; index, i -&gt;</div><div class="line">            front = front.next!!</div><div class="line">        &#125;</div><div class="line">        println(front.data)</div><div class="line"></div><div class="line">        while (true) &#123;</div><div class="line">            front = front.next!!</div><div class="line">            back = back.next!!</div><div class="line">            if (front == back) &#123;</div><div class="line">                return front</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    </div><div class="line">//这样这个链表的长度就求出来了</div></pre></td></tr></table></figure>
-<h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4.总结"></a>4.总结</h2><p>查找链表是否有环使用快慢指针比较巧妙，感觉指针游离作比较，<a href="https://github.com/1181631922/JavaBasics/blob/master/src/link/Link1.kt" target="_blank" rel="external">源码地址</a></p>
+        <h2 id="1-MVC模式是什么"><a href="#1-MVC模式是什么" class="headerlink" title="1.MVC模式是什么"></a>1.MVC模式是什么</h2><p>  MVC即Model、View、Controller即模型、视图、控制器。<br>  MVC要实现的目标是将软件用户界面和业务逻辑分离以使代码可扩展性、可复用性、可维护性、灵活性加强。<br>  View层是界面，Model层是业务逻辑，Controller层用来调度View层和Model层，将用户界面和业务逻辑合理的组织在一起，起粘合剂的效果。所以Controller中的内容能少则少，这样才能提供最大的灵活性。<br>  举个栗子：有一个View会提交数据给Model进行处理以实现具体的行为，View通常不会直接提交数据给Model，它会先把数据提交给Controller，然后Controller再将数据转发给Model。假如此时程序业务逻辑的处理方式有变化，那么只需要在Controller中将原来的Model换成新实现的Model就可以了，控制器的作用就是这么简单，用来将不同的View和不同的Model组织在一起，顺便替换双方传递消息，仅此而已。</p>
 
       
 
@@ -232,7 +224,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2019/11/29/link/Link_01/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2019/12/02/designmode/mvc/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -246,18 +238,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/12/02/link/Link_03/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/12/23/link/Link_02/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          合并两个有序链表
+          如何求单链表的某个元素
         
       </div>
     </a>
   
   
-    <a href="/2018/03/20/Glide使用_03/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Glide使用_3(Glide中bitmap处理之LruArrayPool)</div>
+    <a href="/2019/12/02/link/Link_03/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">合并两个有序链表</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -271,7 +263,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="link/Link_01" data-title="如何求单向链表是否有环，如果有的话求环的长度以及这个单向链表的长度" data-url="http://yoursite.com/2019/11/29/link/Link_01/"></div>
+	<div class="ds-thread" data-thread-key="designmode/mvc" data-title="mvc设计模式" data-url="http://yoursite.com/2019/12/02/designmode/mvc/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

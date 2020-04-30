@@ -146,6 +146,474 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="default-VideoPlayer" class="article article-type-default  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/06/VideoPlayer/">视频</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/06/VideoPlayer/" class="archive-article-date">
+  	<time datetime="2017-02-06T09:33:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2></h2>
+<html>
+<body>
+<video id="videoplayer" width="100%" height="auto" controls="controls">
+    <source src="movie.ogg" type="video/ogg">
+    <source src="movie.mp4" type="video/mp4">
+    <source src="http://220.194.199.183/16/t/e/d/v/tedvmiwiohknqibyvmbwljvbvstfki/hc.yinyuetai.com/02AD01590020D7DB1D4D23856931882A.mp4?sc=ca8323d5262b43bb&br=781&rd=Android&crazycache=1">
+</video>
+
+<!--<button type="button" onclick="changeVideoSource()">更改视频</button>-->
+<!--<button type="button" onclick="getVideoUrl()">获取视频地址</button>-->
+<script>
+    function changeVideoSource(){
+        var videoplayer=document.getElementById("videoplayer");
+        videoplayer.src="http://ic.snssdk.com/neihan/video/playback/?video_id=dbbc0b0735a646c98a46b1d8c9ebeef9&quality=480p&line=0&is_gif=0.mp4";
+        videoplayer.load();
+    }
+
+</script>
+
+<script>
+    function getVideoUrl(){
+alert("你好你好");
+      var s=  $.get('http://ic.snssdk.com/neihan/video/playback/?video_id=dbbc0b0735a646c98a46b1d8c9ebeef9&quality=480p&line=0&is_gif=0.mp4');
+      alert(s);
+    }
+
+</script>
+</body>
+</html>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/06/VideoPlayer/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="default-BrokenLineView_02" class="article article-type-default  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/06/BrokenLineView_02/">自定义折线图（二）</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/06/BrokenLineView_02/" class="archive-article-date">
+  	<time datetime="2017-02-06T02:33:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2></h2>
+<html>
+<body>
+<div>
+    <h4>1.上文自定义折线图有bug，当时没细看，写自定义的时候突然惊醒了</h4>
+    &nbsp;&nbsp;&nbsp;&nbsp;<font size="3">因为x和y轴需要标刻度，然后把坐标轴的原点没有定在左下角，而是向左上进行了平移，所以同时还需要把折线的x点同时加上坐标轴向左移动的距离。</font><br>
+
+    <h4>2.上文中思路也说了，下面来定义一下需要的东西。</h4>
+    &nbsp;&nbsp;&nbsp;&nbsp;<font
+        size="3">这次需要动态画曲线，阴影，标刻度，所以这些都是不确定的，我一般都是定义相应的set方法。我这里定义了四个set方法</font><br>
+    <div style="padding-left:20px;">
+        <li>2.1 首先是需要定义一个bean，自定义的点：BrokenLinePointBean<font color="red">
+            （这里需要留意的是y是百分比，x基本没有用到）</font></li>
+        <li>2.2 画曲线所需要的折点：setPointList(List points)</li>
+        <li>2.3 画阴影所需要的两个点，主要是要确定y轴范围：setShapePaints(BrokenLinePointBean pointY1,
+            BrokenLinePointBean pointY2)
+        </li>
+        <li>2.4 x轴坐标标刻度：setXIndex(List XindexString)</li>
+        <li>2.5 y轴坐标标刻度：setYIndex(List YindexString)</li>
+    </div>
+        
+          <a class="article-more-a" href="/2017/02/06/BrokenLineView_02/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/06/BrokenLineView_02/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="default-SlideShow_01" class="article article-type-default  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/05/SlideShow_01/">Js轮播图（一）</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/05/SlideShow_01/" class="archive-article-date">
+  	<time datetime="2017-02-05T07:36:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2></h2>
+<html>
+<head>
+    <style type="text/css">
+        body{background: #f4f4f4;}
+		#container{width: 100%;height: 553px;position:relative;margin-right: auto;margin-left: auto;vertical-align:middle;}
+		#imglist{margin: auto;position: absolute;top: 0; left: 0; bottom: 0; right: 0;}
+		#buttons,.slidpic{display: none;}
+		.slidpic{position: absolute;opacity:0}
+		.slidpic:first-child{display: block;opacity: 1;}
+		#buttons{display: block;}
+		#buttons i{width:30px; color:white;height:60px;line-height:60px; background: #333;cursor: pointer;opacity: 0.2;filter:alpha(opacity:20);font-family: simsun;display: block;text-align: center;font-size: 22px;font-weight: normal;font-style: normal;-moz-user-select: none;-webkit-user-select: none;
+		-ms-user-select: none;}
+
+		#buttons i:hover{opacity: 0.4;filter:alpha(opacity:40);}
+		#prev{position: absolute;z-index: 3;top: 230px;left: 30px;color: #fff;}
+		#next{position: absolute;z-index: 3;top: 230px;right: 30px;color: #fff;}
+		#slidot{position: absolute;bottom: 40px;left:340px;z-index: 3;margin: 0;padding: 0;}
+		#slidot li{list-style: none;display: inline-block;width: 14px;height: 14px;background:gray ;border-radius:100% ;margin: 0 4px;*display:inline;*zoom:1;}
+		#slidot li:hover{background: #3b0;cursor: pointer;}
+		#slidot li.on{background: blue;}
+
+
+    </style>
+
+    <script type="text/javascript">
+        window.onload=function(){
+        //定义判断添加删除元素class方法
+        var hasClass=function(obj,cls){
+            return obj.className.match(new RegExp('(^|\\s)' + cls + '(\\s|$)'))
+        }
+        var addClass=function(obj,cls){
+          if(!hasClass(obj,cls)){
+            if(obj.className.length==0){obj.className=cls;}
+            else{obj.className+=" "+cls;}
+          }
+        }
+        var rvClass=function(obj,cls){
+          if(hasClass(obj,cls)){
+            var argu=new RegExp('(^|\\s)' + cls + '(\\s|$)');
+            obj.className=obj.className.replace(argu,"");
+          }
+        }
+
+        //开始
+        var prev=document.getElementById("prev"),
+          next=document.getElementById("next"),
+          imglist=document.getElementById("imglist").getElementsByTagName("div"),
+          dot=document.getElementById("slidot").getElementsByTagName("li"),
+          n=imglist.length,
+          index=0,
+          fade=false;
+        // 设置透明度  渐变
+        var setOpacity=function(obj,opa){
+          if(obj.filters){obj.style.filter="alpha(opacity:"+opa+")";}
+          else{obj.style.opacity=opa/100;}
+        }
+        var fadeIn=function(obj){
+          fade=true;
+          obj.style.display="block";
+          var opa=0;
+          (function func(){
+            if(opa<100){opa+=10;setOpacity(obj,opa);setTimeout(func,20)}
+            else{fade=false;}
+          })();
+        }
+        var fadeOut=function(obj){
+          fade=true;
+          var opa=100;
+          (function func(){
+            if(opa>0){opa-=10;setOpacity(obj,opa);setTimeout(func,30)}
+            else{obj.style.display="none";}
+          })();
+        }
+        //  同步点亮小圆点
+        function lightdot(){
+          for (var i=0;i<n;i++){
+            if(hasClass(dot[i],"on")){rvClass(dot[i],"on");break;}
+          }
+          addClass(dot[index],"on");
+        }
+        //  点击切换下一张
+        next.onclick=function(){
+          if(fade){return;}
+          else{
+          fadeOut(imglist[index]);
+          index++;
+          if(index==n)index=0;
+          fadeIn(imglist[index])
+          lightdot();
+          };
+        }
+        //   点击切换上一张
+        prev.onclick=function(){
+          if(fade){return;}
+          else{
+          fadeOut(imglist[index]);
+          if(index==0){index=n;}
+          index--;
+          fadeIn(imglist[index]);
+          lightdot();
+          }
+        }
+        //   圆点控制切换
+        for(var i=0;i<n;i++){
+          dot[i].order=i;
+          dot[i].onclick=function(){
+          if(this.order==index){return}
+          else{
+            fadeOut(imglist[index]);
+            index=this.order;
+            fadeIn(imglist[index]);
+            lightdot();}
+          }
+        }
+        // 自动播放启停
+        function play(){auto=setTimeout(function(){next.onclick();play();},3000)};
+        function stop(){clearTimeout(auto)};
+        play();
+        container.onmouseover=stop;
+        container.onmouseout=play;
+        }
+
+
+    </script>
+</head>
+<body>
+<div id="container">
+    <div id="imglist">
+        <div class="slidpic">
+            <img src="http://www.denpe.com/example/1.jpg" width="100%" height="auto">
+        </div>
+        <div class="slidpic">
+            <img src="http://www.denpe.com/example/2.jpg" width="100%" height="auto">
+        </div>
+        <div class="slidpic">
+            <img src="http://www.denpe.com/example/3.jpg" width="100%" height="auto">
+        </div>
+        <div class="slidpic">
+            <img src="http://www.denpe.com/example/4.jpg" width="100%" height="auto">
+        </div>
+        <div class="slidpic">
+            <img src="http://www.denpe.com/example/5.jpg" width="100%" height="auto">
+        </div>
+    </div>
+
+    <div id="buttons">
+        <i id="prev"><</i>
+        <i id="next">></i>
+    </div>
+
+    <ul id="slidot">
+        <li class="on"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script>
+    (function(i,s,o,g,r,a,m){
+        i['GoogleAnalyticsObject']=r;
+        i[r]=i[r] ||
+        function(){(i[r].q=i[r].q || ).push(arguments)},
+        i[r].l=1*new Date();
+        a=s.createElement(o);
+        m=s.getElementsByTagName(o)[0];
+        a.async=1;
+        a.src=g;
+        m.parentNode.insertBefore(a,m);
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-60786254-1', 'auto');
+	ga('send', 'pageview');
+
+</script>
+
+<!--<h4>2.说一下实现思路</h4>-->
+<!--<div style="padding-left:20px;">-->
+    <!--<li>2.1 首先是先画一个坐标系，但是需要给标尺留出距离，我刚开始的时候就忘了留距离，后来又改的</li>-->
+    <!--<li>2.2 再有就是画一个折线图，折线图需要描点和标值</li>-->
+    <!--<li>2.3 需要画一个矩形范围</li>-->
+<!--</div>-->
+
+<!--<h4>3.在写代码之前先来考虑一下需要什么变量</h4>-->
+<!--<div style="padding-left:20px;">-->
+    <!--<li>3.1 自定义view的话首先需要确定view的宽高，还有就是他的原点是相对于自己的</li>-->
+    <!--<li>3.2 定义画笔，我刚开始的时候没有确定需要定义几个，需要的话我就去定义</li>-->
+    <!--<li>3.3 标尺，以及折线上字的位置</li>-->
+    <!--注：注意一些变量是可以定义成静态的，为了效率-->
+<!--</div>-->
+</body>
+</html>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/05/SlideShow_01/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="default-BrokenLineView_01" class="article article-type-default  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/05/BrokenLineView_01/">自定义折线图（一）</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/05/BrokenLineView_01/" class="archive-article-date">
+  	<time datetime="2017-02-05T03:47:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2></h2>
+<html>
+<body>
+<div>
+    <h4>1.先看一下要实现的大致效果图</h4>
+    <script type="text/javascript">
+            document.write("<font size=\"3\">下图为要实现的设计图，点击后为初步实现的效果图。</font>");
+
+    </script>
+    <button type="button" onclick="changeImage()">点击这里</button>
+    <br><br>
+    <script>
+        function changeImage(){
+            element=document.getElementById('brokenLine');
+            if(element.src.match("brokenlineview1")){
+                element.src="/images/2017-02-05-brokenlineview2.png";
+            }else{
+                element.src="/images/2017-02-05-brokenlineview1.jpg";
+            }
+        }
+
+    </script>
+    <img id="brokenLine" onclick="changeImage()" src="/images/2017-02-05-brokenlineview1.jpg"
+         width=50% height=auto><br>
+        
+          <a class="article-more-a" href="/2017/02/05/BrokenLineView_01/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/05/BrokenLineView_01/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="default-hexo_02" class="article article-type-default  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -532,7 +1000,7 @@ $ npm config set disturl https://npm.taobao.org/dist --global</div></pre>
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 樊亚风
+    		&copy; 2020 樊亚风
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
